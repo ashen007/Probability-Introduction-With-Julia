@@ -10,7 +10,7 @@ possible elements are not clear or has infinite number of them. in the first cas
 possible values can be show as a list of elements. for example,
 
 $$
-\lbrace HH, HT, TH, TT \rbrace \text{in two coin flips}
+\lbrace HH, HT, TH, TT \rbrace \text{ in two coin flips}
 $$
 
 in second case can use rule that says wheather each possible object is or isn't in the set.
@@ -19,7 +19,7 @@ for example,
 $$
 \lbrace (x, y) \in {\mathbb{R}}^2 : x^2 + y^2 \leq 1 \rbrace \\
 \\
-\text{this rule state "disk of radius 1 in the plane } $\mathbb{R}^2$ \text{, centered at the origin."}
+\text{ this rule state "disk of radius 1 in the plane } \mathbb{R}^2 \text{, centered at the origin."}
 $$
 
 ### set types and properties
