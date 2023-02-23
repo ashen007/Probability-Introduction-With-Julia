@@ -10,17 +10,16 @@ possible elements are not clear or has infinite number of them. in the first cas
 possible values can be show as a list of elements. for example,
 
 $$
-\lbrace HH, HT, TH, TT \rbrace \text{in two coin flips} \\
-\R \text{ is the set of all real numbers}
+\lbrace HH, HT, TH, TT \rbrace \text{in two coin flips}
 $$
 
 in second case can use rule that says wheather each possible object is or isn't in the set.
 for example,
 
 $$
-\lbrace (x, y) \in {\R}^2 : x^2 + y^2 \leq 1 \rbrace \\
+\lbrace (x, y) \in {\mathbb{R}}^2 : x^2 + y^2 \leq 1 \rbrace \\
 \\
-\text{this rule state "disk of radius 1 in the plane } $\R^2$ \text{, centered at the origin."}
+\text{this rule state "disk of radius 1 in the plane } $\mathbb{R}^2$ \text{, centered at the origin."}
 $$
 
 ### set types and properties
@@ -33,21 +32,27 @@ $\lbrace \rbrace$. but not as $\lbrace \emptyset \rbrace$ because it has one ele
 #### subset
 
 if $A$ and $B$ are two sets and if all elements of $A$ is in $B$ then $A$ is a subset of $B$. it
-will denote as $A \subseteq B$. and also $\o$ and $A$ it self a subsets of $A$.
+will denote as $A \subseteq B$. and also $\emptyset$ and $A$ it self a subsets of $A$.
 
 #### union, intersection and complement
 
 - the union of two sets $A$ and $B$, written as $A \cup B$, is the set of all objects that are in
   $A$ or $B$ or both.
 
-<img height="222" src="../../images/Asset 5.png" width="344" alt="union"/>
+<p align="center">
+<img height="222" src="../../images/Asset 6.png" width="344" alt="union"/>
+</p>
 
 - the intersection of $A$ and $B$, written as $A \cap B$, is the set of all objects that are in
   both $A$ and $B$.
 
-<img height="222" src="../../images/Asset 6.png" width="344" alt="intersection"/>
+<p align="center">
+<img height="222" src="../../images/Asset 5.png" width="344" alt="intersection"/>
+</p>
 
 - if $S$ is clear from context, wedefine the complement of set $A$ as all the objects in $S$ that
   are not in $A$. this set denote as $A^c$.
 
+<p align="center">
 <img height="222" src="../../images/Asset 7.png" width="344" alt="complement"/>
+</p>
