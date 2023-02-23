@@ -11,13 +11,42 @@ possible values can be show as a list of elements. for example,
 
 $${
     \lbrace HH, HT, TH, TT \rbrace \text{in two coin flips} \\
-    \text{R is the set of all real numbers}
+    \text{\R is the set of all real numbers}
 }$$
 
 in second case can use rule that says wheather each possible object is or isn't in the set.
 for example,
 
 $${
-    \lbrace (x, y) \in R^2 : x^2 + y^2 \leq 1 \rbrace \\
-    this rule state "disk of radius 1 in the plane $R^2$, centered at the origin".
+    \lbrace (x, y) \in \R^2 : x^2 + y^2 \leq 1 \rbrace \\
+    this rule state "disk of radius 1 in the plane $\R^2$, centered at the origin".
 }$$
+
+### set types and properties
+
+#### the empty set
+
+the smallest possible set because it has not a single element with in it. it denote as $\o$ or 
+$\lbrace \rbrace$. but not as $\lbrace \o \rbrace$ because it has one element which is $\o$
+
+#### subset
+
+if $A$ and $B$ are two sets and if all elements of $A$ is in $B$ then $A$ is a subset of $B$. it
+will denote as $A \subseteq B$. and also $\o$ and $A$ it self a subsets of $A$.
+
+#### union, intersection and complement
+
+- the union of two sets $A$ and $B$, written as $A \cup B$, is the set of all objects that are in
+  $A$ or $B$ or both.
+
+  []()
+
+- the intersection of $A$ and $B$, written as $A \cap B$, is the set of all objects that are in 
+  both $A$ and $B$.
+
+  []()
+
+- if $S$ is clear from context, wedefine the complement of set $A$ as all the objects in $S$ that
+  are not in $A$. this set denote as $A^c$.
+
+  []()
