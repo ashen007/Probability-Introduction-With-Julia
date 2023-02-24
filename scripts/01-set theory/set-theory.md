@@ -13,7 +13,7 @@ $$
 \lbrace HH, HT, TH, TT \rbrace \text{ in two coin flips}
 $$
 
-in second case can use rule that says wheather each possible object is or isn't in the set.
+in second case can use rule that says whether each possible object is or isn't in the set.
 for example,
 
 $$
@@ -43,6 +43,9 @@ will denote as $A \subseteq B$. and also $\emptyset$ and $A$ it self a subsets o
 <img height="222" src="../../images/Asset 6.png" width="344" alt="union"/>
 </p>
 
+note: the area of the region $A \cup B$ is the area of $A$ plus the area of $B$, minus the area of $A \cap B$,
+      this is the simple form of the _inclusion-exclusion principle_.
+
 - the intersection of $A$ and $B$, written as $A \cap B$, is the set of all objects that are in
   both $A$ and $B$.
 
@@ -50,9 +53,23 @@ will denote as $A \subseteq B$. and also $\emptyset$ and $A$ it self a subsets o
 <img height="222" src="../../images/Asset 5.png" width="344" alt="intersection"/>
 </p>
 
-- if $S$ is clear from context, wedefine the complement of set $A$ as all the objects in $S$ that
+- if $S$ is clear from context, we define the complement of set $A$ as all the objects in $S$ that
   are not in $A$. this set denote as $A^c$.
 
 <p align="center">
 <img height="222" src="../../images/Asset 7.png" width="344" alt="complement"/>
 </p>
+
+##### de morgan's law
+
+there are two versions of this, 
+
+- first one says that not being in at least one of the $A_j$ is the same thing as not
+  being in $A_1$, nor being in $A_2$, nor being in $A_3$, etc.
+
+$$(A_1 \cup A_2 \cup ... \cup A_n)^c = {A_1}^c \cap {A_2}^c \cap ... \cap {A_n}^c$$
+
+- second law says that not being in all the $A_j$ is the same thing as being outside at 
+  least one of the $A_j$.
+
+$$(A_1 \cap A_2 \cap ... \cap A_n)^c = {A_1}^c \cup {A_2}^c \cup ... \cup {A_n}^c$$
