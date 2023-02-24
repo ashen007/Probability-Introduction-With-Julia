@@ -69,7 +69,11 @@ there are two versions of this,
 
 $$(A_1 \cup A_2 \cup ... \cup A_n)^c = {A_1}^c \cap {A_2}^c \cap ... \cap {A_n}^c$$
 
+<p align="center"><img height="653" src="../../images/Asset 8.png" width="942" alt="morgan law 1"/></p>
+
 - second law says that not being in all the $A_j$ is the same thing as being outside at 
   least one of the $A_j$.
 
 $$(A_1 \cap A_2 \cap ... \cap A_n)^c = {A_1}^c \cup {A_2}^c \cup ... \cup {A_n}^c$$
+
+<p align="center"><img height="651" src="../../images/Asset 9.png" width="1004" alt="morgan law 2"/></p>
