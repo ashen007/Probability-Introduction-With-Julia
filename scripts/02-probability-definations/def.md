@@ -36,7 +36,7 @@ an event is a subset of sample space.
 let $A$ be an event for an experiment with a finite sample space $S$. the _naive probability_ of $A$ is,
 
 $$P_naive(A) = {{\mid A \mid} \over {\mid S \mid}} 
-= {\text{number of outcomes favorable to A} \over {total number of outcomes in S}}$$
+= {\text{number of outcomes favorable to A} \over \text{total number of outcomes in S}}$$
 
 when naive definition will be applicable:
 

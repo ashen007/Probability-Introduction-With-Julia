@@ -9,7 +9,9 @@ to calculate all possibilities of this two events are,
 
 $$\text{total number of possibilities} = {6 . 5} = 30$$
 
+<p align="center">
 <img height="348" src="../../images/Asset 10.png" width="336" alt="outcome tree"/>
+</p>
 
 things to notice in using multiplication rule,
 
@@ -37,7 +39,7 @@ of $1, 2, ..., n$. For example, there are $n!$ ways in which n people can line u
 
 ### binomial coefficient
 
-for any non-negative integers $k$ and $n$, the binomial coefficient $ {n \choose k}$, read as "n choose k", 
+for any non-negative integers $k$ and $n$, the binomial coefficient ${n \choose k}$, read as "n choose k", 
 is the number of subsets of size k for a set of size n.
 
 binomial coefficient counts the number of subsets of a certain size for a set, such as the number of ways to 
