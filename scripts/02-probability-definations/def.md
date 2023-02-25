@@ -1,7 +1,7 @@
 ## sample space (_S_)
 
 sample space is the set of all possible outcomes of the experiment. sample space of an
-experiment can be finite, countably infinite or uncounatbly infinite.
+experiment can be finite, countably infinite or uncountably infinite.
 
 ## event
 
@@ -44,3 +44,73 @@ when naive definition will be applicable:
   of cards.
 - when the outcomes are equally likely by design.
 - when the naive definition serves as a useful _null model_.
+
+## non-nive definition of probability
+
+A probability space consists of a sample space $S$ and a _probability function_ $P$ which takes an event 
+$A \subseteq S$ as input and returns $P(A)$, a real number between 0 and 1, as output. The function $P$ must 
+satisfy the following axioms:
+
+- $P(\emptyset) = 0, P(S) = 1$
+- if $A_1, A_2, ..., A_n$ are disjoint events, then
+$$P\left( {\bigcup}_{j=1}^\infty A_j \right) = {\sum}_{j=1}^\infty P(A_j)$$
+
+  (meaning that these events are disjoint, they are mutually exclusive events)
+
+the axioms don't tell us how probability should be _interpreted_. 
+
+"the frequentist view of probability is that it represents a long-run frequency over a large 
+number of repetitions of an experiment: if we say a coin has probability 1/2 of Heads, that 
+means the coin would land Heads 50% of the time if we tossed it over and over and over."
+
+"the Bayesian view of probability is that it represents a degree of belief about the
+event in question, so we can assign probabilities to hypotheses like "candidate A
+will win the election" or "the defendant is guilty" even if it isn't possible to repeat
+the same election or the same crime over and over again.
+
+### properties of probability
+
+- $P(A^c) = 1 - P(A)$
+- if $A \subseteq B$, then $P(A) \leq P(B)$
+
+<p align="center">
+<img height="284" src="../../images/Asset 11.png" width="422" alt="axiom_2"/>
+</p>
+
+since $A$ and $B \cap A^c$ are disjoint, we can apply the second axiom,
+
+$$P(B) = P(A \cup (B \cap A^c)) = P(A) + P(B \cap A^c)$$
+
+probability is non-negative, so $P(B \cap A^c) \geq 0$, proving that $P(B) \geq P(A)$
+
+- $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+<p align="center">
+<img height="222" src="../../images/Asset 5.png" width="344" alt="axiom_3"/>
+</p>
+
+$$\eqalign{
+P(A \cup B) &= P(A \cup (B \cap A^c)) = P(A) + P(B \cap A^c) \\
+P(B \cap A^c) &= P(B) - P(A \cap B)
+}$$
+
+the third property is a special case of inclusion-exclusion, a formula for finding the probability of a 
+union of events when the events are not necessarily disjoint. We showed above that for two events $A$ and $B$,
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+for three events, inclusive-exclusive says,
+
+$$\eqalign{
+P(A \cup B \cup C) &= P(A) + P(B) + P(C) \\
+                   &- P(A \cap B) - P(A \cap C) - P(B \cap C) \\
+                   &+ P(A \cap B \cap C)
+}$$
+
+general version of inclusion exclusion,
+
+$$\eqalign{
+P \left( {\bigcup}_{i=1}^n A_i \right) &= {\sum}_i P(A_i) - {\sum}_{i \lt j} P(A_i \cap A_j) 
+                                       &+ {\sum}_{i \lt j \lt k} P(A_i \cap A_j \cap A_k) - ...
+                                       + (-1)^{n+1} P(A_1 \cap ... \cap A_n)
+}$$
