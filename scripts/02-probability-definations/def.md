@@ -52,7 +52,8 @@ $A \subseteq S$ as input and returns $P(A)$, a real number between 0 and 1, as o
 satisfy the following axioms:
 
 - $P(\emptyset) = 0, P(S) = 1$
-- if $A_1, A_2, ..., A_n$ are disjoint events, then
+- if $A_1, A_2, ..., A_n$ are disjoint events, then,
+
 $$P\left( {\bigcup}_{j=1}^\infty A_j \right) = {\sum}_{j=1}^\infty P(A_j)$$
 
   (meaning that these events are disjoint, they are mutually exclusive events)
