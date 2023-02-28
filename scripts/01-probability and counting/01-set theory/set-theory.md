@@ -40,7 +40,7 @@ will denote as $A \subseteq B$. and also $\emptyset$ and $A$ it self a subsets o
   $A$ or $B$ or both.
 
 <p align="center">
-<img height="222" src="../../images/Asset 6.png" width="344" alt="union"/>
+<img height="222" src="../../../images/Asset%206.png" width="344" alt="union"/>
 </p>
 
 note: the area of the region $A \cup B$ is the area of $A$ plus the area of $B$, minus the area of $A \cap B$,
@@ -50,14 +50,14 @@ note: the area of the region $A \cup B$ is the area of $A$ plus the area of $B$,
   both $A$ and $B$.
 
 <p align="center">
-<img height="222" src="../../images/Asset 5.png" width="344" alt="intersection"/>
+<img height="222" src="../../../images/Asset%205.png" width="344" alt="intersection"/>
 </p>
 
 - if $S$ is clear from context, we define the complement of set $A$ as all the objects in $S$ that
   are not in $A$. this set denote as $A^c$.
 
 <p align="center">
-<img height="222" src="../../images/Asset 7.png" width="344" alt="complement"/>
+<img height="222" src="../../../images/Asset%207.png" width="344" alt="complement"/>
 </p>
 
 ##### de morgan's law
@@ -69,11 +69,11 @@ there are two versions of this,
 
 $$(A_1 \cup A_2 \cup ... \cup A_n)^c = {A_1}^c \cap {A_2}^c \cap ... \cap {A_n}^c$$
 
-<p align="center"><img height="653" src="../../images/Asset 8.png" width="942" alt="morgan law 1"/></p>
+<p align="center"><img height="653" src="../../../images/Asset%208.png" width="942" alt="morgan law 1"/></p>
 
 - second law says that not being in all the $A_j$ is the same thing as being outside at 
   least one of the $A_j$.
 
 $$(A_1 \cap A_2 \cap ... \cap A_n)^c = {A_1}^c \cup {A_2}^c \cup ... \cup {A_n}^c$$
 
-<p align="center"><img height="651" src="../../images/Asset 9.png" width="1004" alt="morgan law 2"/></p>
+<p align="center"><img height="651" src="../../../images/Asset%209.png" width="1004" alt="morgan law 2"/></p>

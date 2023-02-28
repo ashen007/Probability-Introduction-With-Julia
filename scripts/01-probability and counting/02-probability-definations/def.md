@@ -75,7 +75,7 @@ the same election or the same crime over and over again.
 - if $A \subseteq B$, then $P(A) \leq P(B)$
 
 <p align="center">
-<img height="284" src="../../images/Asset 11.png" width="422" alt="axiom_2"/>
+<img height="284" src="../../../images/Asset%2011.png" width="422" alt="axiom_2"/>
 </p>
 
 since $A$ and $B \cap A^c$ are disjoint, we can apply the second axiom,
@@ -87,7 +87,7 @@ probability is non-negative, so $P(B \cap A^c) \geq 0$, proving that $P(B) \geq 
 - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
 <p align="center">
-<img height="222" src="../../images/Asset 5.png" width="344" alt="axiom_3"/>
+<img height="222" src="../../../images/Asset%205.png" width="344" alt="axiom_3"/>
 </p>
 
 $$\eqalign{

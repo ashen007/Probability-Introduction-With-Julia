@@ -10,7 +10,7 @@ to calculate all possibilities of this two events are,
 $$\text{total number of possibilities} = {6 . 5} = 30$$
 
 <p align="center">
-<img height="348" src="../../images/Asset 10.png" width="336" alt="outcome tree"/>
+<img height="348" src="../../../images/Asset%2010.png" width="336" alt="outcome tree"/>
 </p>
 
 things to notice in using multiplication rule,
