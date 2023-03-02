@@ -115,18 +115,16 @@ probability of an at least one suit void
 <img height="508" src="../../../images/Asset%2012.png" width="563" alt="at least one suite void"/>
 </p>
 
-$$\text{lets define events for each suite being void,} \\
-\\
-\text{S : scope void} \\
-\text{D : diamond void} \\
-\text{H : heart void} \\
-\text{C : clubs void} \\
-\\
-\text{to find the probability of at least one suite void need to find, } P(S \cup D \cup H \cup C) \\
-\\
-\text{from inclusion-exclusion,} \\
-\\
-$$
+$\text{lets define events for each suite being void, }$
+
+$\text{S : scope void}$
+$\text{D : diamond void}$
+$\text{H : heart void}$
+$\text{C : clubs void}$
+
+$\text{to find the probability of at least one suite void need to find,}$ $P(S \cup D \cup H \cup C)$
+
+from inclusion-exclusion,
 
 $$\eqalign{
 p(S \cup D \cup H \cup C) &= p(S) + p(D) + p(H) + p(C) \\ 
