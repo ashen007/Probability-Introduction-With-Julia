@@ -117,12 +117,12 @@ probability of an at least one suit void
 
 $\text{lets define events for each suite being void, }$
 
-$\text{S : scope void}$
-$\text{D : diamond void}$
-$\text{H : heart void}$
-$\text{C : clubs void}$
+- S : scope void
+- D : diamond void
+- H : heart void
+- C : clubs void
 
-$\text{to find the probability of at least one suite void need to find,}$ $P(S \cup D \cup H \cup C)$
+$\text{to find the probability of at least one suite void need to find, }$ $P(S \cup D \cup H \cup C)$
 
 from inclusion-exclusion,
 
