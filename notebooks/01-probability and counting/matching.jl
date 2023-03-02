@@ -4,6 +4,7 @@ intro_examples:
 - Author: ashen
 - Date: 2023-02-28
 =#
+using Plots
 
 """
 Create a random sample with given size. use the input as
@@ -11,11 +12,11 @@ upperlimit and 0 1 as the lower limit
 
 ...
 # Arguments
-- `n::Integer`: the size of the sample and upper limit.
+- `num_sample::Integer`: the size of the sample and upper limit.
 ...
 """
-function sample(n::Int)
-    rand(1:n, n)
+function sample(num_sample::Int)
+    rand(1:num_sample, num_sample)
 
 end
 
@@ -30,13 +31,13 @@ Evaluate given expression given times.
 
 ...
 # Arguments
-- `n::Integer`: number of time the given expression should
+- `iter::Integer`: number of time the given expression should
                 evaluate
-- `expression:: Expression`: expression want to evaluate
+- `expr:: Expression`: expression want to evaluate
 ...
 """
-function replicate(n::Int, expression::Expr)
-    [eval(expression) for _ in 1:n]
+function replicate(iter::Int, expr::Expr)
+    [eval(expr) for _ in 1:iter]
 
 end
 
@@ -51,13 +52,18 @@ cards in the deck.
 - `m::Integer`: number of cards in the deck
 ...
 """
-function matching(n::Int, m::Int)
-    r = replicate(n, :(sum(sample(m) .== (1:m))))
-    sum(r.>=1)/n
+function matching(dsize::Integer, n::Integer)
+    expr = :(sum(sample($(dsize)) .== (1:$(dsize))))
+    r = replicate(n, expr)
+    p = sum(r.>=1)/n
+
+    p
 
 end
 
 n = 1000
-m = 56
+ms = 1:150
+ps = [matching(i, n) for i in ms]
 
-matching(n, m)
+plot(ms, ps)
+plot!(ms, ps, seriestype=:scatter)
