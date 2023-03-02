@@ -115,11 +115,12 @@ probability of an at least one suit void
 <img height="508" src="../../../images/Asset%2012.png" width="563" alt="at least one suite void"/>
 </p>
 
-$$\eqalign{\text{lets define events for each suite being void, \\
+$$\eqalign{
+\text{lets define events for each suite being void, \\
 S : scope void \\
 D : diamond void \\
 H : heart void \\
-C : clubs void \\
+C : clubs void}
 \\
 \text{to find the probability of at least one suite void need to find, } P(S \cup D \cup H \cup C) \\
 \\
