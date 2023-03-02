@@ -137,7 +137,7 @@ p(S \cap D) = p(D \cap H) = p(H \cap C) = p(S \cap H) = p(S \cap C) = p(D \cap C
 p(S \cap D \cap H) = p(D \cap H \cap C) = p(S \cap H \cap C) = (D \cap C \cap S) = {{13 \choose 13} \over {13 \choose 52}} \\
 \\
                           &= 4p(S) - 6p(S \cap D) + 4p(S \cap D \cap H) - p(S \cap D \cap H \cap C) \\
-                          &= 4*{{13 \choose 39} \over {13 choose 52}} - 6*{{13 \choose 26} \over {13 \choose 52}}
+                          &= 4*{{13 \choose 39} \over {13 \choose 52}} - 6*{{13 \choose 26} \over {13 \choose 52}}
                              +4*{{13 \choose 13} \over {13 \choose 52}} - 0 \\
                           &= 0.051
 }$$
