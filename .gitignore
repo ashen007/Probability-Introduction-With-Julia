@@ -22,3 +22,15 @@ docs/site/
 # committed for packages, but should be committed for applications that require a static
 # environment.
 Manifest.toml
+/.idea/git_toolbox_prj.xml
+/.idea/rpackages.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/juliaConfig.xml
+/.idea/Probability-Introduction-With-Julia.iml
+/.idea/rAvailablePackageCache.xml
+/.idea/vcs.xml
+/.idea/rGraphicsSettings.xml
+/.idea/modules.xml
+/.idea/rSettings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/misc.xml
