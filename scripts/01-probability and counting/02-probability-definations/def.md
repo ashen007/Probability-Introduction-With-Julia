@@ -108,6 +108,37 @@ P(A \cup B \cup C) &= P(A) + P(B) + P(C) \\
                    &+ P(A \cap B \cap C)
 }$$
 
+for an example, suppose choosing 13 cards hand from well shuffle 52 card deck, what will be the
+probability of an at least one suit void
+
+<p align="center">
+<img height="508" src="../../../images/Asset%2012.png" width="563" alt="at least one suite void"/>
+</p>
+
+$$\eqalign{\text{lets define events for each suite being void, \\
+S : scope void \\
+D : diamond void \\
+H : heart void \\
+C : clubs void \\}
+\\
+\text{to find the probability of at least one suite void need to find, } P(S \cup D \cup H \cup C) \\
+\\
+\text{from inclusion-exclusion,} \\
+\\
+p(S \cup D \cup H \cup C) &= p(S) + p(D) + p(H) + p(C) \\ 
+                          &- (p(S \cap D) + p(D \cap H) + p(H \cap C) + p(S \cap H) + p(S \cap C) + p(D \cap C)) \\
+                          &+ (p(S \cap D \cap H) + p(D \cap H \cap C) + p(S \cap H \cap C) + (D \cap C \cap S)) \\
+                          &- p(S \cap D \cap H \cap C) \\
+\\
+p(S) = p(D) = p(H) = p(C) = {{13 \choose 39} \over {13 choose 52}}; p(S \cap D) = p(D \cap H) = p(H \cap C) = p(S \cap H) = p(S \cap C) = p(D \cap C) = {{13
+\choose 26} \over {13 choose 52}}; \\ p(S \cap D \cap H) = p(D \cap H \cap C) = p(S \cap H \cap C) = (D \cap C \cap S) = {{13 \choose 13} \over {13 choose 52}} \\
+\\
+                          &= 4p(S) - 6p(S \cap D) + 4p(S \cap D \cap H) - p(S \cap D \cap H \cap C) \\
+                          &= 4*{{13 \choose 39} \over {13 choose 52}} - 6*{{13 \choose 26} \over {13 choose 52}}
+                             +4*{{13 \choose 13} \over {13 choose 52}} - 0 \\
+                          &= 0.051
+}$$
+
 general version of inclusion exclusion,
 
 $$\eqalign{
