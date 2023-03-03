@@ -27,24 +27,39 @@ for example, $A$ standard deck of cards is shuffled well. Two cards are drawn ra
 time without replacement. Let $A$ be the event that the first card is a heart, and $B$ be the 
 event that the second card is red.
 
-$$\eqalign{P(A|B) &= {P(A \cap B)} \over {P(B)} \\ 
+$$\eqalign{P(A|B) &= {{P(A \cap B)} \over {P(B)}} \\ 
 \\
-      P(A \cap B) &= {13 \dot 25} \over {52 \dot 51} = 25 \over 204 \\
-             P(B) &= 26 \over 52 = 1 \over 2 \\
+      P(A \cap B) &= {{13 \dot 25} \over {52 \dot 51}} = {25 \over 204} \\
+             P(B) &= {26 \over 52} = {1 \over 2} \\
 \\
 \text{by symmetry: from a vantage point before having done the experiment, the second card 
 is equally likely to be any card in the deck.}
 \\
-             P(A) &= 13 \over 52 = 1 \over 4 \\
+             P(A) &= {13 \over 52} = {1 \over 4} \\
 \\
-P(A|B) &= {P(A \cap B)} \over {P(B)} = {25 \over 204} \over {1 \over 2} = 25 \over 102 \\
-P(B|A) &= {P(B \cap A)} \over {P(A)} = {25 \over 204} \over {1 \over 4} = 25 \over 51
+P(A|B) &= {{P(A \cap B)} \over {P(B)}} = {{25 \over 204} \over {1 \over 2}} = {25 \over 102} \\
+P(B|A) &= {{P(B \cap A)} \over {P(A)}} = {{25 \over 204} \over {1 \over 4}} = {25 \over 51}
 }$$
 
-### Note
+### note
 
 - $P(A|B) \neq P(B|A)$
 - Both $P(A|B)$ and $P(B|A)$ make sense (intuitively and mathematically); the chronological order in 
   which cards were chosen does not dictate which conditional probabilities we can look at. When we 
   calculate conditional probabilities, we are considering what information observing one event 
   provides about another event, not whether one event causes another
+
+### some intuitions
+
+<img height="211" src="../../../images/Asset%2013.png" width="926" alt="pebble world"/>
+
+Pebble World intuition for $P(A \mid B)$. From left to right: 
+
+(a) Events $A$ and $B$ are subsets of the sample space
+
+(b) Because we know $B$ occurred, get rid of the outcomes in $B^c$
+
+(c) In the restricted sample space, _re-normalize_ so the total mass is still 1.
+
+    This is achieved by dividing by $P(B)$, the total mass of the pebbles in $B$. The updated mass of the 
+    outcomes corresponding to event $A$ is the conditional probability $P(AjB) = {{P(A | B)} \over {P(B)}}$.
