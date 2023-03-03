@@ -17,7 +17,7 @@ more generally conditional probability can express,
 
 $$\eqalign{
 P(A_1, A_2, ..., A_n) = P(A_1).P(A_2 \mid A_1).P(A_3 \mid A_1, A_2) ... P(A_n \mid A_1, ..., A_{n-1}) \\
-\text{commas denote intersections, P(A_3 \mid A_1, A_2) = P(A_3 \mid A_1 \cap A_2)}
+\text{commas denote intersections }, P(A_3 \mid A_1, A_2) = P(A_3 \mid A_1 \cap A_2)
 }$$
 
 ## bayes' rule
@@ -46,21 +46,20 @@ probability problems into simpler pieces, and it is often used in tandem with Ba
 
 let $A_1, ..., A_n$ be a partition of the sample space $S$, with $P(A_i) > 0 for all $i$. then
 
-$$P(B) &= \sum_{i=1}^n P(B \mid A_i).P(A_i)$$
-
-$$B &= (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n) \\$$
+$$eqalign{P(B) &= \sum_{i=1}^n P(B \mid A_i).P(A_i)}$$
+$$eqalign{B &= (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)}$$
 
 <img height="414" src="../../../images/Asset%2014.png" width="634" alt="partitioning event B"/>
 
 where we have chopped $B$ into the smaller pieces $B \cap A_1$ through $B \cap A_n$. By the second axiom of
 probability, because these pieces are disjoint, we can add their probabilities to get $P(B)$:
 
-$$P(B) &= $(B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
+$$eqalign{P(B) &= $(B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
 \\
-\text{by applying }  P(B \cap A_i) &= P(B \mid A_i).P(A_i) \\
+\text{by applying }  P(B \cap A_i) = P(B \mid A_i).P(A_i) \\
 \\
 P(B) &= P(B \mid A_1).P(A_1) + ... + P(B \mid A_n).P(A_n)
-$$
+}$$
 
 The law of total probability tells us that to get the unconditional probability of $B$, we can divide the sample 
 space into disjoint slices $A_i$, find the conditional probability of $B$ within each of the slices, then take a 
