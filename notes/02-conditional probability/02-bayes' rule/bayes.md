@@ -31,7 +31,7 @@ $$odds(A) = {P(A)} \over {P(A^c)}$$
 By taking the Bayes' rule expression for $P(A \mid B)$ and dividing it by the Bayes' rule
 expression for $P(A^c \mid B)$, we arrive at the odds form of Bayes' rule.
 
-$${P(A \mid B)} \over {P(A^c \mid B)} = {{P(B \mid A)} \over {P(B \mid A^c}} . {{P(A)} \over {P(A^c)}}$$
+$${{P(A \mid B)} \over {P(A^c \mid B)}} = {{P(B \mid A)} \over {P(B \mid A^c}} . {{P(A)} \over {P(A^c)}}$$
 
 in words, this says that the posterior odds ${P(A \mid B)} \over {P(A^c \mid B)}$ are equal to the prior
 odds ${P(A)} \over {P(A^c)}$ times the factor ${P(B \mid A)} \over {P(B \mid A^c)}$, which is known in 
@@ -44,7 +44,7 @@ The law of total probability (LOTP) relates conditional probability to unconditi
 essential for fulfilling the promise that conditional probability can be used to decompose complicated 
 probability problems into simpler pieces, and it is often used in tandem with Bayes' rule.
 
-let $A_1, ..., A_n$ be a partition of the sample space $S$, with $P(A_i) > 0 for all $i$. then
+let $A_1, ..., A_n$ be a partition of the sample space $S$, with $P(A_i) > 0$ for all $i$. then
 
 $$P(B) = {\sum}_{i=1}^n P(B \mid A_i).P(A_i)$$
 $$B = (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)$$
@@ -54,7 +54,7 @@ $$B = (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)$$
 where we have chopped $B$ into the smaller pieces $B \cap A_1$ through $B \cap A_n$. By the second axiom of
 probability, because these pieces are disjoint, we can add their probabilities to get $P(B)$:
 
-$$eqalign{P(B) &= (B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
+$$\eqalign{P(B) &= (B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
 \\
 \text{by applying }  P(B \cap A_i) = P(B \mid A_i).P(A_i) \\
 \\
