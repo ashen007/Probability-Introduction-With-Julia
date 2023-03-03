@@ -55,7 +55,7 @@ where we have chopped $B$ into the smaller pieces $B \cap A_1$ through $B \cap A
 probability, because these pieces are disjoint, we can add their probabilities to get $P(B)$:
 
 $$\eqalign{P(B) &= (B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
-}
+}$$
 
 $\text{by applying }  P(B \cap A_i) = P(B \mid A_i).P(A_i)$
 
