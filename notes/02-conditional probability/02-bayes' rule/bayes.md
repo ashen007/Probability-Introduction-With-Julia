@@ -49,7 +49,9 @@ let $A_1, ..., A_n$ be a partition of the sample space $S$, with $P(A_i) > 0$ fo
 $$P(B) = {\sum}_{i=1}^n P(B \mid A_i).P(A_i)$$
 $$B = (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)$$
 
+<p align="center">
 <img height="414" src="../../../images/Asset%2014.png" width="634" alt="partitioning event B"/>
+</p>
 
 where we have chopped $B$ into the smaller pieces $B \cap A_1$ through $B \cap A_n$. By the second axiom of
 probability, because these pieces are disjoint, we can add their probabilities to get $P(B)$:
@@ -68,3 +70,19 @@ weighted sum of the conditional probabilities, where the weights are the probabi
 how to divide up the sample space is crucial: a well-chosen partition will reduce a complicated problem into 
 simpler pieces, whereas a poorly chosen partition will only exacerbate our problems, requiring us to calculate $n$
 difficult probabilities instead of just one!
+
+## conditional probabilities
+
+When we condition on an event $E$, we update our beliefs to be consistent with this knowledge, effectively putting 
+ourselves in a universe where we know that $E$ occurred. Within our new universe, however, the laws of probability 
+operate just as before. Conditional probability satisfies all the properties of probability! Therefore, any of the 
+results we have derived about probability are still valid if we replace all unconditional probabilities with 
+probabilities conditional on $E$. In particular:
+
+- Conditional probabilities are between 0 and 1
+- $P(S \mid E) = 1, P(\emptyset \mid E) = 0$
+- if $A_1, A_2, ..., $ are disjoint, then $P({\bigcup}_{j=1}^\infty A_j \mid E) = {\sum}_{j=1}^\infty P(A_j \mid E)$
+- $P(A^c \mid E) = 1 - P(A \mid E)$
+- inclusion-exclusion: $P(A \cup B \mid E) = P(A \mid E) + P(B \mid E) - P(A \cap B \mid E)$
+
+_Conditional probabilities are probabilities, and all probabilities are conditional._
