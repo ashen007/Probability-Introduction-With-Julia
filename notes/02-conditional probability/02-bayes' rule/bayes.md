@@ -86,3 +86,31 @@ probabilities conditional on $E$. In particular:
 - inclusion-exclusion: $P(A \cup B \mid E) = P(A \mid E) + P(B \mid E) - P(A \cap B \mid E)$
 
 _Conditional probabilities are probabilities, and all probabilities are conditional._
+
+## independence of events
+
+We have seen several examples where conditioning on one event changes our beliefs about the probability of another 
+event. The situation where events provide no information about each other is called independence.
+
+events $A$ and $B$ are independent if,
+$$P(A \cap B) = P(A).P(B)$$
+
+if $P(A) > 0$ and $P(B) > 0$, then this is equivalent to,
+$$P(A \mid B) = P(A); P(B \mid A) = P(B)$$
+
+In words, two events are independent if we can obtain the probability of their intersection by multiplying their 
+individual probabilities. Alternatively, $A$ and $B$ are independent if learning that $B$ occurred gives us no 
+information that would change our probabilities for $A$ occurring (and vice versa).
+
+Note that independence is a symmetric relation: if $A$ is independent of $B$, then $B$ is independent of $A$.
+
+Independence is completely different from disjointness. If $A$ and $B$ are disjoint, then $P(A \cap B) = 0$, so 
+disjoint events can be independent only if $P(A) = 0$ or $P(B) = 0$. Knowing that $A$ occurs tells us that $B$ 
+definitely did not occur, so $A$ clearly conveys information about $B$, meaning the two events are not independent
+(except if $A$ or $B$ already has zero probability).
+
+## coherency of bayes' rule
+
+An important property of Bayes' rule is that it is coherent: if we receive multiple pieces of information and wish 
+to update our probabilities to incorporate all the information, it does not matter whether we update sequentially, 
+taking each piece of evidence into account one at a time, or simultaneously, using all the evidence at once.
