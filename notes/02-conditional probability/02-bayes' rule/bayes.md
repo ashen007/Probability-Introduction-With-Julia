@@ -46,15 +46,15 @@ probability problems into simpler pieces, and it is often used in tandem with Ba
 
 let $A_1, ..., A_n$ be a partition of the sample space $S$, with $P(A_i) > 0 for all $i$. then
 
-$$eqalign{P(B) &= \sum_{i=1}^n P(B \mid A_i).P(A_i)}$$
-$$eqalign{B &= (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)}$$
+$$P(B) = {\sum}_{i=1}^n P(B \mid A_i).P(A_i)$$
+$$B = (B \cap A_1) \cup (B \cap A_1) \cup ... \cup (B \cap A_n)$$
 
 <img height="414" src="../../../images/Asset%2014.png" width="634" alt="partitioning event B"/>
 
 where we have chopped $B$ into the smaller pieces $B \cap A_1$ through $B \cap A_n$. By the second axiom of
 probability, because these pieces are disjoint, we can add their probabilities to get $P(B)$:
 
-$$eqalign{P(B) &= $(B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
+$$eqalign{P(B) &= (B \cap A_1) + (B \cap A_1) + ... + (B \cap A_n) \\
 \\
 \text{by applying }  P(B \cap A_i) = P(B \mid A_i).P(A_i) \\
 \\
