@@ -1,3 +1,12 @@
+<!-- TOC -->
+  * [multiplication rule](#multiplication-rule)
+    * [sampling with replacement](#sampling-with-replacement)
+    * [sampling without replacement](#sampling-without-replacement)
+    * [permutations and factorials](#permutations-and-factorials)
+    * [binomial coefficient](#binomial-coefficient)
+  * [story proofs](#story-proofs)
+<!-- TOC -->
+
 ## multiplication rule
 
 consider a compound experiment consisting of two sub-experiments, Experiment $A$ and Experiment $B$. 

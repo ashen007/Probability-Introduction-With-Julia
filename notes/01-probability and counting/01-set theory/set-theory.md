@@ -1,3 +1,13 @@
+<!-- TOC -->
+  * [what is a set?](#what-is-a-set)
+    * [how to define a set](#how-to-define-a-set)
+    * [set types and properties](#set-types-and-properties)
+      * [the empty set](#the-empty-set)
+      * [subset](#subset)
+      * [union, intersection and complement](#union-intersection-and-complement)
+        * [de morgan's law](#de-morgans-law)
+<!-- TOC -->
+
 ## what is a set?
 
 a set is a collection of objects. the objects can be anything, for example numbers, people,

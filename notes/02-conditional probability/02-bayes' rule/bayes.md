@@ -1,3 +1,12 @@
+<!-- TOC -->
+  * [probability of the intersection of two events](#probability-of-the-intersection-of-two-events)
+  * [bayes' rule](#bayes-rule)
+  * [law of total probability](#law-of-total-probability)
+  * [conditional probabilities](#conditional-probabilities)
+  * [independence of events](#independence-of-events)
+  * [coherency of bayes' rule](#coherency-of-bayes-rule)
+<!-- TOC -->
+
 ## probability of the intersection of two events
 
 for any events $A$ and $B$ with positive probabilities,

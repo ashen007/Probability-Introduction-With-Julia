@@ -1,3 +1,13 @@
+<!-- TOC -->
+  * [bayesian reasoning](#bayesian-reasoning)
+  * [bayesian analysis](#bayesian-analysis)
+    * [observing data](#observing-data)
+    * [prior believes](#prior-believes)
+    * [forming a hypothesis](#forming-a-hypothesis)
+    * [gathering more evidence and updating beliefs](#gathering-more-evidence-and-updating-beliefs)
+    * [data informs belief, belief should not inform data](#data-informs-belief-belief-should-not-inform-data)
+<!-- TOC -->
+
 ## bayesian reasoning
 
 Bayesian reasoning involves stepping through your thought process when you’re confronted with a situation to

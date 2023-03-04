@@ -1,3 +1,9 @@
+<!-- TOC -->
+  * [conditional probability definition](#conditional-probability-definition)
+    * [note](#note)
+    * [some intuitions](#some-intuitions)
+<!-- TOC -->
+
 For example, that one morning we are interested in the event R that it will rain that day. 
 Let P(R) be our assessment of the probability of rain before looking outside. If we then 
 look outside and see ominous clouds in the sky, then presumably our probability of rain 

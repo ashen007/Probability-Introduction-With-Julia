@@ -1,3 +1,12 @@
+<!-- TOC -->
+  * [sample space (_S_)](#sample-space--s-)
+  * [event](#event)
+    * [special event definitions](#special-event-definitions)
+  * [naive definition of probability](#naive-definition-of-probability)
+  * [non-nive definition of probability](#non-nive-definition-of-probability)
+    * [properties of probability](#properties-of-probability)
+<!-- TOC -->
+
 ## sample space (_S_)
 
 sample space is the set of all possible outcomes of the experiment. sample space of an
