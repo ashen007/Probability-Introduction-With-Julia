@@ -13,12 +13,12 @@ also we interested in wealth difference between two players and time duration th
 Instead of having convoluted notation that obscures how the quantities of interest
 are related,
 
-> _"Let $X_k$ be the wealth of gambler $A$ after $k$ rounds. Then $Y_k = N - X_k$
+> "Let $X_k$ be the wealth of gambler $A$ after $k$ rounds. Then $Y_k = N - X_k$
 > is the wealth of gambler $B$ after $k$ rounds (where N is the fixed total wealth);
 > $X_k - Y_k = 2.X_k - N$ is the difference in wealth after $k$ rounds; ${c_k}X_k$
 > is the wealth of gambler $A$ in euros after $k$ rounds, where ${c_k}$ is the euros
 > per dollar exchange rate after $k$ rounds; and the duration is
-> R = min $\lbrace n : X_n = 0 or Y_n = 0 \rbrace$"_
+> R = min $\lbrace n : X_n = 0 or Y_n = 0 \rbrace$"
 
 The notion of a random variable will allow us to do exactly this!
 
