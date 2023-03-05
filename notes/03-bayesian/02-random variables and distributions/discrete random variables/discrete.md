@@ -37,7 +37,7 @@ pX(2) &= P(X = 2) = {1 \over 4}
 - $Y = 2 - X$, the number of Tails. Reasoning as above or using the fact that
 
 $$\eqalign{
-P(Y = y) &= P(2 - X = y) = P(X = 2 - y) = pX(2 - y) PMF, \\
+P(Y = y) &= P(2 - X = y) = P(X = 2 - y) = pX(2 - y), \text{ PMF}, \\
 \\
 pY(0) &= P(Y = 0) = {1 \over 4} \\
 pY(1) &= P(Y = 1) = {1 \over 2} \\
