@@ -15,10 +15,10 @@ are related,
 
 > "Let $X_k$ be the wealth of gambler $A$ after $k$ rounds. Then $Y_k = N - X_k$
 > is the wealth of gambler $B$ after $k$ rounds (where N is the fixed total wealth);
-> $X_k - Y_k = 2.X_k - N$ is the difference in wealth after $k$ rounds; ${_c_k}X_k$
-> is the wealth of gambler $A$ in euros after $k$ rounds, where $_c_k$ is the euros
+> $X_k - Y_k = 2.X_k - N$ is the difference in wealth after $k$ rounds; ${_{c_k}}X_k$
+> is the wealth of gambler $A$ in euros after $k$ rounds, where $_{c_k}$ is the euros
 > per dollar exchange rate after $k$ rounds; and the duration is
-> R = min \lbrace n : X_n = 0 or Y_n = 0 \rbrace"
+> R = min $\lbrace n : X_n = 0 or Y_n = 0 \rbrace$"
 
 The notion of a random variable will allow us to do exactly this!
 
@@ -38,8 +38,8 @@ here is defined on a sample space with 6 elements, and has possible values 0, 1,
 randomness comes from choosing a random pebble according to the probability function $P$ for
 the sample space.
 
-**_Given an experiment with sample space $S$, a random variable is a function from the sample 
-space $S$ to the real numbers $R$._**
+**_Given an experiment with sample space S, a random variable is a function from the sample 
+space S to the real numbers R._**
 
 Thus, a random variable $X$ assigns a numerical value $X(s)$ to each possible outcome $s$ of the 
 experiment. The randomness comes from the fact that we have a random experiment, with probabilities 
@@ -69,5 +69,5 @@ We can also encode the sample space as ${(1, 1), (1, 0), (0, 1), (0, 0)}$, where
 
 $$\eqalign{X_{(s_1, s_2)} &= s_1 + s_2 \\
            Y_{(s_1, s_2)} &= 2 - s_1 - s_2 \\
-              I(s_1, s_2) &= s_1
+           I_{(s_1, s_2)} &= s_1
 }$$
