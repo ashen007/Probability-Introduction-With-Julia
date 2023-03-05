@@ -1,3 +1,5 @@
+## random variable
+
 let's assume a game of cards, we may be very interested in how much wealth each gambler has at
 any particular time,
 
@@ -71,3 +73,9 @@ $$\eqalign{X_{(s_1, s_2)} &= s_1 + s_2 \\
            Y_{(s_1, s_2)} &= 2 - s_1 - s_2 \\
            I_{(s_1, s_2)} &= s_1
 }$$
+
+## variate
+
+A variate is a generalization of the idea of a random variable and has similar probabilistic properties 
+but is defined without reference to a particular type of probabilistic experiment. A variate is the set 
+of all random variables that obey a given probabilistic law.

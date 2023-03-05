@@ -38,7 +38,6 @@ pX(2) &= P(X = 2) = {1 \over 4}
 
 $$\eqalign{
 P(Y = y) &= P(2 - X = y) = P(X = 2 - y) = pX(2 - y), \text{ PMF}, \\
-\\
 pY(0) &= P(Y = 0) = {1 \over 4} \\
 pY(1) &= P(Y = 1) = {1 \over 2} \\
 pY(2) &= P(Y = 2) = {1 \over 4}
