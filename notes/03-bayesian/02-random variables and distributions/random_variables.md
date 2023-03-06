@@ -79,3 +79,22 @@ $$\eqalign{X_{(s_1, s_2)} &= s_1 + s_2 \\
 A variate is a generalization of the idea of a random variable and has similar probabilistic properties 
 but is defined without reference to a particular type of probabilistic experiment. A variate is the set 
 of all random variables that obey a given probabilistic law.
+
+## cumulative distribution functions
+
+The cumulative distribution function (CDF) of a random variable $X$ is the function $F_X$ given by 
+$F_X(x) = P(X \leq x)$. When there is no risk of ambiguity, we sometimes drop the subscript(x) and 
+just write F (or some other letter) for a CDF. CDF is the probability function that $X$ will take 
+a value less than or equal to $x$.
+
+Any CDF $F$ has the following properties,
+
+- increasing: if $x_1 \leq x_2$, then $F(x_1) \leq F(x_2)$
+- right continues: CDF is continuous except possibly for having some jumps. Wherever there is a jump, 
+  the CDF is continuous from the right. That is, for any $a$, we have, 
+
+$$F(a) = {\lim}_{x \to a^{+} F(x)}
+
+- convergence to 0 and 1 in the limit,
+
+$${\lim}_{x \to -\infty} F(x) = 0 \text{ and } {\lim}_{x \to \infty} F(x) = 1$$
