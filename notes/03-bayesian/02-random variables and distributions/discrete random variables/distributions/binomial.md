@@ -23,7 +23,7 @@ pX(1) = P \lbrace X = 1 \rbrace = p
 
 - variate $B: 1, p$
 - range $X \in \lbrace 0, 1 \rbrace$
-- parameter $p$, bernoulli probability parameter, $0 \gt p \lt 1$
+- parameter $p$, bernoulli probability parameter, $0 \lt p \lt 1$
 
 An experiment that can result in either a "success" or a "failure" (but not both) is called a
 Bernoulli trial. A Bernoulli random variable can be thought of as the _indicator of success_ in a
@@ -34,7 +34,7 @@ Bernoulli trial: it equals 1 if success occurs and 0 if failure occurs in the tr
 Suppose that $n$ _independent_ Bernoulli trials are performed, each with the same success probability $p$.
 Let $X$ be the number of successes. The distribution of $X$ is called the Binomial distribution with
 parameters $n$ and $p$. We write $X ~ Bin(n, p)$ to mean that $X$ has the Binomial distribution
-with parameters $n$ and $p$, where $n$ is a positive integer and $0 \gt p \lt 1$.
+with parameters $n$ and $p$, where $n$ is a positive integer and $0 \lt p \lt 1$.
 
 **Here it is clear that $Bern(p)$ is the same distribution as $Bin(1, p)$ the Bernoulli is a special
 case of the Binomial.**
