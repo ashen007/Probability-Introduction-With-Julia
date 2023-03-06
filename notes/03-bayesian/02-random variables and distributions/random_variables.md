@@ -40,16 +40,16 @@ here is defined on a sample space with 6 elements, and has possible values 0, 1,
 randomness comes from choosing a random pebble according to the probability function $P$ for
 the sample space.
 
-**_Given an experiment with sample space S, a random variable is a function from the sample 
+**_Given an experiment with sample space S, a random variable is a function from the sample
 space S to the real numbers R._**
 
-Thus, a random variable $X$ assigns a numerical value $X(s)$ to each possible outcome $s$ of the 
-experiment. The randomness comes from the fact that we have a random experiment, with probabilities 
+Thus, a random variable $X$ assigns a numerical value $X(s)$ to each possible outcome $s$ of the
+experiment. The randomness comes from the fact that we have a random experiment, with probabilities
 described by the probability function P. the mapping itself is deterministic.
 
 for example,
 
-Consider an experiment where we toss a fair coin twice. The sample space consists of four possible 
+Consider an experiment where we toss a fair coin twice. The sample space consists of four possible
 outcomes: $S = {HH, HT, TH, TT}$, let's consider some random variables,
 
 - let $X$ (random variable) be the number of heads, possible outcomes of this random variable are
@@ -62,39 +62,43 @@ $$X(HH) = 2, X(HT) = X(TH) = 1, X(TT) = 0$$
 $$Y = 2 - X \text{ in other words, } Y(s) = 2 - X(s)$$
 
 - Let $I$ be 1 if the first toss lands Heads and 0 otherwise. Then $I$ assigns the value 1 to the outcomes
-  $HH$ and $HT$ and 0 to the outcomes $TH$ and $TT$. This random variable is an example of what is called 
-  an indicator random variable since it indicates whether the first toss lands Heads, using 1 to mean 
+  $HH$ and $HT$ and 0 to the outcomes $TH$ and $TT$. This random variable is an example of what is called
+  an indicator random variable since it indicates whether the first toss lands Heads, using 1 to mean
   "yes" and 0 to mean "no"
 
-We can also encode the sample space as ${(1, 1), (1, 0), (0, 1), (0, 0)}$, where 1 is the code for Heads and 
+We can also encode the sample space as ${(1, 1), (1, 0), (0, 1), (0, 0)}$, where 1 is the code for Heads and
 0 is the code for Tails. Then we can give explicit formulas for $X, Y, I$:
 
 $$\eqalign{X_{(s_1, s_2)} &= s_1 + s_2 \\
-           Y_{(s_1, s_2)} &= 2 - s_1 - s_2 \\
-           I_{(s_1, s_2)} &= s_1
+Y_{(s_1, s_2)} &= 2 - s_1 - s_2 \\
+I_{(s_1, s_2)} &= s_1
 }$$
 
 ## variate
 
-A variate is a generalization of the idea of a random variable and has similar probabilistic properties 
-but is defined without reference to a particular type of probabilistic experiment. A variate is the set 
+A variate is a generalization of the idea of a random variable and has similar probabilistic properties
+but is defined without reference to a particular type of probabilistic experiment. A variate is the set
 of all random variables that obey a given probabilistic law.
 
 ## cumulative distribution functions
 
-The cumulative distribution function (CDF) of a random variable $X$ is the function $F_X$ given by 
-$F_X(x) = P(X \leq x)$. When there is no risk of ambiguity, we sometimes drop the subscript(x) and 
-just write F (or some other letter) for a CDF. CDF is the probability function that $X$ will take 
+The cumulative distribution function (CDF) of a random variable $X$ is the function $F_X$ given by
+$F_X(x) = P(X \leq x)$. When there is no risk of ambiguity, we sometimes drop the subscript(x) and
+just write F (or some other letter) for a CDF. CDF is the probability function that $X$ will take
 a value less than or equal to $x$.
 
 Any CDF $F$ has the following properties,
 
 - increasing: if $x_1 \leq x_2$, then $F(x_1) \leq F(x_2)$
-- right continues: CDF is continuous except possibly for having some jumps. Wherever there is a jump, 
-  the CDF is continuous from the right. That is, for any $a$, we have, 
+- right continues: CDF is continuous except possibly for having some jumps. Wherever there is a jump,
+  the CDF is continuous from the right. That is, for any $a$, we have,
 
 $$F(a) = {\lim}_{x \to a^{+} F(x)}
 
 - convergence to 0 and 1 in the limit,
 
 $${\lim}_{x \to -\infty} F(x) = 0 \text{ and } {\lim}_{x \to \infty} F(x) = 1$$
+
+<p align="center">
+<img height="500" src="../../../images/03/binomial_experiment_cdf.png" width="800" alt="cdf"/>
+</p>>

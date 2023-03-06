@@ -7,12 +7,19 @@ binomial_experiment:
 
 using Plots, Distributions
 
-function experiment(n:: Integer, p::Float64)
+function experiment(n::Integer, p::Float64)
     dist = Binomial(n, p)
     pmf = [pdf(dist, s) for s in 0:n]
 
     pmf
-    
+
+end
+
+function experiment_cdf(n::Integer, p::Float64)
+    dist = Binomial(n, p)
+
+    [cdf(dist, s) for s in 0:n]
+
 end
 
 function biuld_plot()
@@ -28,13 +35,13 @@ function biuld_plot()
             push!(gs, g)
 
         end
-        
+
     end
 
     return gs
-    
+
 end
 
 gs = biuld_plot()
-ex_plot = plot(gs..., layout=(4, 2), legend=false, size = (700, 900))
+ex_plot = plot(gs..., layout=(4, 2), legend=false, size=(700, 900))
 savefig(ex_plot, "./images/03/binomial_experiment.png")
