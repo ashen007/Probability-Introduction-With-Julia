@@ -94,3 +94,13 @@ $N = w + b$, $X$ are success or one labeled section of the population, $k$ is th
 $n$ sample size,
 
 $$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}
+
+## discrete uniform
+
+Let $C$ be a finite, nonempty set of numbers. Choose one of these numbers uniformly at random (i.e., all 
+values in $C$ are equally likely). Call the chosen number $X$. Then $X$ is said to have the Discrete
+Uniform distribution with parameter $C$; we denote this by $X \sim DUnif(C)$.
+
+the PMF of $X \sim DUnif(C)$ is,
+
+$$P(X = x) = {1 \over {\lvert C \rvert}}$$
