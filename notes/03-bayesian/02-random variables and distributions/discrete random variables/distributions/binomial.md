@@ -56,8 +56,41 @@ that in any PMF plot, the sum of the heights of the vertical bars must be 1.
 Let $X \sim Bin(n, p)$, and $q = 1 - p$ (we often use $q$ to denote the failure probability of a Bernoulli 
 trial). Then $n - X \sim Bin(n, q)$.
 
+- variate $B: n, p$
+- range $0 \leq k \leq n,$ $k$ an integer
+- parameter $n$, the bernoulli trial parameter (a positive integer), $p$, the bernoulli probability parameter
+
 ### corollary
 
 Let $X \sim Bin(n, p)$ with $p = {1 \over 2}$ and $n$ even. Then the distribution of $X$ is symmetric about $n=2$, 
 in the sense that $P(X = {n \over 2} + j) = P(X = {n \over 2} - j)$ for all non-negative integers j.
 
+## hyper-geometric
+
+Consider an urn with $w$ white balls and $b$ black balls. We draw $n$ balls out of the urn at random without 
+replacement, such that all ${{w+b} \choose n}$ samples are equally likely. Let $X$ be the number of white balls in
+the sample. Then $X$ is said to have the _Hyper-geometric distribution_ with parameters $w, b,$ and $n$, we denote
+this by $X \sim HGeom(w, b, n)$.
+
+If $X \sim HGeom(w, b, n)$, then the PMF of $X$ is,
+
+$$P(X = k) = {{{w \choose k}{b \choose {n-k}}} \over {{w+b} \choose n}}$$
+
+for integers $k$ satisfying $0 \leq k \leq w$ and $0 \leq {n-k} \leq$, and $P(X=k) = 0$ otherwise.
+
+The essential structure of the Hyper-geometric story is that items in a population are classified using two
+sets of tags: in the urn story, each ball is either white or black (this is the first set of tags), and each 
+ball is either sampled or not sampled (this is the second set of tags). Furthermore, at least one of these 
+sets of tags is assigned completely at random (in the urn story, the balls are sampled randomly, with all 
+sets of the correct size equally likely). Then $X \sim HGeom(w, b, n)$ represents the number of twice-tagged
+items: in the urn story, balls that are both white and sampled.
+
+The $HGeom(w, b, n)$ and $HGeom(n, w + b - n, w)$ distributions are identical. That is, if $X \sim HGeom(w, b, n)$ 
+and $Y \sim HGeom(n, w + b - n, w)$, then X and Y have the same distribution.
+
+more general version of hyper-geometric,
+
+$N = w + b$, $X$ are success or one labeled section of the population, $k$ is the number of success, 
+$n$ sample size,
+
+$$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}
