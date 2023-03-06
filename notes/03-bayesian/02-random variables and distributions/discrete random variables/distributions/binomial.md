@@ -41,7 +41,7 @@ case of the Binomial.**
 
 If $X ~ Bin(n, p)$, then the PMF of $X$ is,
 
-$$P(X = k) = {n \choice k} {p^k} {(1 - p)^{n - k}}$$
+$$P(X = k) = {n \choose k} {p^k} {(1 - p)^{n - k}}$$
 
 for $k=0, 1, ..., n$ and $P(X = k) = 0$ otherwise.
 
