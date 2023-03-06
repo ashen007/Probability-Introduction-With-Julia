@@ -6,7 +6,7 @@ _indicator random variable_ of an event, denote by $I_A$ or $I(A)$.
 ## bernoulli
 
 a random variable is said to have the _bernoulli distribution_ with parameter $p$ if $P(X = 1) = p$
-and $P(X = 0) = 1 - p$ where $0 < p < 1$. write it as $X \sim Bern(p)$, note `\sim` is indicate
+and $P(X = 0) = 1 - p$ where $0 < p < 1$. write it as $X \sim Bern(p)$, note `~` is indicate
 "is distributed as".
 
 any random variable whose possible values are 0 and 1 has a $Bern(p)$ distribution, with $p$ the
@@ -60,3 +60,4 @@ trial). Then $n - X \sim Bin(n, q)$.
 
 Let $X \sim Bin(n, p)$ with $p = {1 \over 2}$ and $n$ even. Then the distribution of $X$ is symmetric about $n=2$, 
 in the sense that $P(X = {n \over 2} + j) = P(X = {n \over 2} - j)$ for all non-negative integers j.
+
