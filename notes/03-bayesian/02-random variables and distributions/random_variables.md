@@ -93,7 +93,7 @@ Any CDF $F$ has the following properties,
 - right continues: CDF is continuous except possibly for having some jumps. Wherever there is a jump,
   the CDF is continuous from the right. That is, for any $a$, we have,
 
-$$F(a) = {\lim}_{x \to a^{+} F(x)}
+$$F(a) = {\lim}_{x \to a^{+} F(x)}$$
 
 - convergence to 0 and 1 in the limit,
 
@@ -101,4 +101,22 @@ $${\lim}_{x \to -\infty} F(x) = 0 \text{ and } {\lim}_{x \to \infty} F(x) = 1$$
 
 <p align="center">
 <img height="500" src="../../../images/03/binomial_experiment_cdf.png" width="800" alt="cdf"/>
-</p>>
+</p>
+
+## function of random variables
+
+That is, if $X$ is a random variable, then $X^2$, $e^X$, and $sin(X)$ are also random variables, as is 
+$g(X)$ for any function $g : R \to R$.
+
+if we want, apply the same function $g$ to all the numbers inside the pebbles. Instead of the numbers 
+$X(s_1)$ through $X(s_6)$, we now have the numbers $g(X(s_1))$ through $g(X(s_6))$, which gives a new 
+mapping from sample outcomes to real numbers we've created a new random variable, $g(X)$.
+
+_For an experiment with sample space $S$, a random variable $X$, and a function $g : R \to R, g(X)$ is 
+the random variable that maps $s$ to $g(X(s))$ for all $s \in S$._
+
+<img height="582" src="../../../images/Asset 16.png" width="1269" alt="function of random variable"/>
+
+This suggests a strategy for finding the PMF of a random variable with an unfamiliar distribution:
+try to express the random variable as a one-to-one function of a random variable with a known
+distribution.

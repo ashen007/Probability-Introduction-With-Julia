@@ -93,7 +93,7 @@ more general version of hyper-geometric,
 $N = w + b$, $X$ are success or one labeled section of the population, $k$ is the number of success, 
 $n$ sample size,
 
-$$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}
+$$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}$$
 
 ## discrete uniform
 
