@@ -120,3 +120,40 @@ the random variable that maps $s$ to $g(X(s))$ for all $s \in S$._
 This suggests a strategy for finding the PMF of a random variable with an unfamiliar distribution:
 try to express the random variable as a one-to-one function of a random variable with a known
 distribution.
+
+## expected value
+
+The definition of expectation for a discrete random variable is inspired by the weighted mean of a list of 
+numbers, with weights given by probabilities. The expected value (also called the expectation or mean) of 
+a discrete random variable $X$ whose distinct possible values are $x_1, x_2, ...$ is define by,
+
+$$E(X) = {\sum}_{j=1}^\infty {P(X = x_j)}$$
+
+$x_j$ is a value that random variable can get $P(X = x)$ is the PMF at $x$.
+
+if $X$ and $Y$ are discrete random variable with the same distribution, then $E(X) = E(Y)$. The converse of 
+the proposition is false since the expected value is just a one number summary, not nearly enough to specify 
+the entire distribution. it's a measure of where the "center" is but does not determine, for example, how 
+spread out the distribution is or how likely the random variable is to be positive.
+
+### linearity of expectation
+
+The most important property of expectation is linearity: the expected value of a sum of random variable is 
+the sum of the individual expected values.
+
+For any random variables X, Y and any constant c,
+
+$$\eqalign{
+E(X + Y) &= E(X) + E(Y), \\
+   E(cX) &= cE(X)
+}$$
+
+The second equation says that we can take out constant factors from an expectation, this is both intuitively 
+reasonable and easily verified from the definition. The first equation, $E(X + Y) = E(X) + E(Y)$, also 
+seems reasonable when $X$ and $Y$ are independent. What may be surprising is that it holds even if $X$ and $Y$
+are dependent! To build intuition for this, consider the extreme case where $X$ always equals $Y$. Then
+$X + Y = 2X$, and both sides of $E(X + Y ) = E(X) + E(Y)$ are equal to $2E(X)$, so linearity still holds 
+even in the most extreme case of dependence.
+
+This insight, that averages can be calculated in two ways, ungrouped or grouped is all that is needed to 
+prove linearity.
