@@ -46,7 +46,7 @@ $$P(X = k) = {n \choose k} {p^k} {(1 - p)^{n - k}}$$
 for $k=0, 1, ..., n$ and $P(X = k) = 0$ otherwise.
 
 <p align="center">
-<img height="899" src="../../../../../images/03/binomial_experiment.png" width="699" alt="binomial experiment"/>
+<img height="899" src="../../../../images/03/binomial_experiment.png" width="699" alt="binomial experiment"/>
 </p>
 
 For a fixed number of trials $n$, $X$ tends to be larger when the success probability is high and lower when
@@ -104,3 +104,53 @@ Uniform distribution with parameter $C$; we denote this by $X \sim DUnif(C)$.
 the PMF of $X \sim DUnif(C)$ is,
 
 $$P(X = x) = {1 \over {\lvert C \rvert}}$$
+
+## connection between binomial and hyper-geometric
+
+we can get from the Binomial to the Hyper-geometric by conditioning, and we can get from the Hyper-geometric 
+to the Binomial by taking a limit.
+
+for example,
+
+A scientist wishes to study whether women or men are more likely to have a certain disease, or whether they 
+are equally likely. A random sample of $n$ women and $m$ men is gathered, and each person is tested for the disease 
+(assume for this problem that the test is completely accurate). The numbers of women and men in the sample 
+who have the disease are $X$ and $Y$ respectively, with $X \sim Bin(n, p_1)$ and $Y \sim Bin(m, p_2)$, independently. 
+Here $p_1$ and $p_2$ are unknown, and we are interested in testing whether $p1 = p2$, suppose that $X + Y = r$,
+
+|            | women | men       | total     |
+|------------|-------|-----------|-----------|
+| disease    | x     | r - x     | r         |
+| no disease | n - x | m - r + x | n + m - r |
+| total      | n     | m         | n + m     |
+
+the condition here is $X + Y = r$ (number of men and women found with disease),
+
+$$\eqalign{
+P(X = x | X + Y = r) &= {{{P(X + Y = r | X = x)}{P(X = x)}} \over {P(X + Y = r)}} \\
+\\
+\because {P(X + Y = r | X = x)} = {P(Y = r - x)} \\
+                     &= {{{P(Y = r - x)}{P(X = x)}} \over {P(X + Y = r)}}
+}$$
+
+${P(X + Y = r | X = x)} = {P(Y = r - x)}$ is justified by the independence of $X$ and $Y$ . Assuming the null 
+hypothesis and letting $p = p1 = p2$, we have $X \sim Bin(n, p)$ and $Y \sim Bin(m, p)$, independently, so 
+$X + Y \sim Bin(n + m, p)$.
+
+$$\eqalign{
+P(X = x | X + Y = r) &= {{{m \choose {r-x}}{p^{r-x}}{{(1 - p)}^{m-r+x}}{n \choose x}{p^x}{(1 - p)^{n-x}}} 
+                        \over {{{n+m} \choose r}{p^r}{(1 - p)^{n+m-r}}}}
+                     &= {{{n \choose x}{m \choose {r-x}}} \over {{n+m} \choose {r}}}
+}$$
+
+So the conditional distribution of $X$ is Hyper-geometric with parameters $n, m, r$:
+
+under the null hypothesis, the set of diseased people is equally likely to be any set of $r$ people. Thus, 
+conditional on $X + Y = r$, $X$ represents the number of women among the $r$ diseased individuals, which 
+is distributed $HGeom(n, m, r)$.
+
+An interesting fact, which turns out to be useful in statistics, is that the conditional distribution of $X$ does
+not depend on $p$: unconditionally, $X \sim Bin(n, p)$, but $p$ disappears from the parameters of the conditional 
+distribution! This makes sense upon reflection, since once we know $X + Y = r$, we can work directly with the fact
+that we have a population with $r$ diseased and $n + m - r$ healthy people, without worrying about the value of $p$ 
+that originally generated the population.
