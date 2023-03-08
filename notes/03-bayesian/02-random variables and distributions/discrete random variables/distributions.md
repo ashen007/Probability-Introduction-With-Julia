@@ -78,6 +78,8 @@ n-1 = m, k-1 = j \\
 E(X) &= np
 }$$
 
+variance,
+
 ### corollary
 
 Let $X \sim Bin(n, p)$ with $p = {1 \over 2}$ and $n$ even. Then the distribution of $X$ is symmetric about $n=2$, 
@@ -129,6 +131,8 @@ E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
 \because {{\sum_{j=0}^t}{HGeom(t, b, l)}} = 1, \\
 E(X) &= {{nw} \over {w+b}}
 }$$
+
+variance,
 
 ### connection between binomial and hyper-geometric
 
@@ -190,6 +194,10 @@ the PMF of $X \sim DUnif(C)$ is,
 
 $$P(X = x) = {1 \over {\lvert C \rvert}}$$
 
+expected value,
+
+variance,
+
 ## geo-metric
 
 Consider a sequence of independent Bernoulli trials, each with the same success probability $p \in (0, 1)$, with 
@@ -222,3 +230,44 @@ $$\eqalign{
      &= {{p(1-p)} \over {p^2}} \\
 E(X) &= {(1-p) \over {p}}
 }$$
+
+variance,
+
+## poisson
+
+a random variable $X$ has the _poisson distribution_ with parameter $\lambda$, where $\lambda > 0$, if the PMF of
+$X$ is,
+
+$$P(X=k) = {{e^{-\lambda}{\lambda^k}} \over {k!}}, k=0,1,2,...$$
+
+We write this as $X \sim Pois(\lambda)$.
+
+expected value,
+
+$$\eqalign{
+E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
+     &= {e^{-\lambda}}{{\sum}_{k=0}^\infty}{k{{{\lambda}^k} \over {k!}}} \\
+     &= {e^{-\lambda}}{{\sum}_{k=1}^\infty}{k{{{\lambda}^k} \over {k!}}} \\
+     &= {{\lambda}e^{-\lambda}}{{\sum}_{k=1}^\infty}{{{{\lambda}^{k-1}} \over {{k-1}!}}} \\
+     &= {\lambda}{e^{-\lambda}}{e^{\lambda}}
+     &= \lambda
+}$$
+
+First we dropped the $k = 0$ term because it was 0. Then we took a $\lambda$ out of the sum so that what was left 
+inside was just the Taylor series for $e^{\lambda}$.
+
+The Poisson distribution is often used in situations where we are counting the number of successes in a particular
+region or interval of time, and there are a large number of trials, each with a small probability of success. The 
+parameter $\lambda$ is interpreted as the rate of occurrence of these rare events.
+
+## connections between poisson and binomial
+
+The Poisson and Binomial distributions are closely connected, and their relationship is exactly parallel to the 
+relationship between the Binomial and Hyper-geometric distributions. we can get from the Poisson to the Binomial 
+by conditioning, and we can get from the Binomial to the Poisson by _taking a limit_.
+
+If $X \sim Pois({\lambda}_1)$, $Y \sim Pois({\lambda}_2)$, and $X$ is independent of $Y$, then 
+$X + Y \sim Pois({\lambda}_1 + {\lambda}_2)$.
+
+If $X \sim Pois({\lambda}_1)$, $Y \sim Pois({\lambda}_2)$, and $X$ is independent of $Y$, then the conditional 
+distribution of $X$ given $X + Y = n$ is $Bin(n, {{{\lambda}_1} \over {({\lambda}_1 + {\lambda}_2)}})$.
