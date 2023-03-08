@@ -63,7 +63,7 @@ trial). Then $n - X \sim Bin(n, q)$.
 expected value,
 
 $$eqalign{
-E(X) &= {{\sum}_{x=0}^n}}{xP(X=x)} \\
+E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
 \because P(X=x) = {{n \choose k}{p^k(1-p)^{n-k}}} \\
      &= {\sum_{k=0}^n}{k{n \choose k}{p^k(1-p)^{n-k}}} \\
 \\
