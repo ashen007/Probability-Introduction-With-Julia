@@ -75,7 +75,7 @@ E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
 n-1 = m, k-1 = j \\
      &= np{\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} \\
 {\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} = 1, \because \sum PMF = 1 \\
-     &= np
+E(X) &= np
 }$$
 
 ### corollary
@@ -112,6 +112,23 @@ $N = w + b$, $X$ are success or one labeled section of the population, $k$ is th
 $n$ sample size,
 
 $$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}$$
+
+expected value,
+
+$$\eqalign{
+E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
+\because P(X=x) = {{{w \choose x}{b \choose {n-x}}} \over {{w+b} \choose n}} \\
+     &= {\sum_{k=0}^w}{k}{{{w \choose k}{b \choose {n-k}}} \over {{w+b} \choose n}} \\
+\\
+\because {k}{w \choose k} = {w}{{w-1} \choose {k-1}}, {{w+b} \choose {n}} = {{w+b} \over n}{{w+b-1} \choose {n-1}}\\
+\because k=0, {k}{{{w \choose k}{b \choose {n-k}}} \over {{w+b} \choose n}} = 0 \\
+{{nw} \over {w+b}}{\sum_{k=1}^w}{{{{{w-1} \choose {k-1}}{b \choose {n-k}}} \over {{w+b} \choose n}} \\
+\\
+let k - 1 = j, w - 1 = t, n - 1 = l \\
+{{{nw} \over {w+b}}{\sum_{j=0}^t}{{{t \choose j}{b \choose {l-j}}} \over {{t+b} \choose l}}} \\
+\because {{\sum_{j=0}^t}{HGeom(t, b, l)}} = 1, \\
+E(X) = {{nw} \over {w+b}}
+}$$
 
 ### connection between binomial and hyper-geometric
 
