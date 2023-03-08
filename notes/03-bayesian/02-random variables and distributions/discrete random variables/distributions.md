@@ -60,6 +60,24 @@ trial). Then $n - X \sim Bin(n, q)$.
 - range $0 \leq k \leq n,$ $k$ an integer
 - parameter $n$, the bernoulli trial parameter (a positive integer), $p$, the bernoulli probability parameter
 
+expected value,
+
+$$eqalign{
+E(X) &= {{\sum}_{x=0}^n}}{xP(X=x)} \\
+\because P(X=x) = {{n \choose k}{p^k(1-p)^{n-k}}} \\
+     &= {\sum_{k=0}^n}{k{n \choose k}{p^k(1-p)^{n-k}}} \\
+\\
+\because {n \choose k} = {n \over k}{{n-1} \choose {k-1}} \\
+\\
+\because k=0, {k{n \choose k}{p^k(1-p)^{n-k}}} = 0, \\
+     &= n{\sum_{k=1}^n}{{{n-1} \choose {k-1}}{p^k}{(1-p)^{n-k}}} \\
+     &= np{\sum_{k=1}^n}{{{n-1} \choose {k-1}}{p^{k-1}}{(1-p)^{(n-1)-(k-1)}}} \\
+n-1 = m, k-1 = j \\
+     &= np{\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} \\
+{\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} = 1, \because \sum PMF = 1 \\
+     &= np
+}$$
+
 ### corollary
 
 Let $X \sim Bin(n, p)$ with $p = {1 \over 2}$ and $n$ even. Then the distribution of $X$ is symmetric about $n=2$, 
@@ -95,17 +113,7 @@ $n$ sample size,
 
 $$P(X = k) = {{{X \choose k}{{N - X} \choose {n - k}}} \over {N \choose n}}$$
 
-## discrete uniform
-
-Let $C$ be a finite, nonempty set of numbers. Choose one of these numbers uniformly at random (i.e., all 
-values in $C$ are equally likely). Call the chosen number $X$. Then $X$ is said to have the Discrete
-Uniform distribution with parameter $C$; we denote this by $X \sim DUnif(C)$.
-
-the PMF of $X \sim DUnif(C)$ is,
-
-$$P(X = x) = {1 \over {\lvert C \rvert}}$$
-
-## connection between binomial and hyper-geometric
+### connection between binomial and hyper-geometric
 
 we can get from the Binomial to the Hyper-geometric by conditioning, and we can get from the Hyper-geometric 
 to the Binomial by taking a limit.
@@ -154,3 +162,19 @@ not depend on $p$: unconditionally, $X \sim Bin(n, p)$, but $p$ disappears from 
 distribution! This makes sense upon reflection, since once we know $X + Y = r$, we can work directly with the fact
 that we have a population with $r$ diseased and $n + m - r$ healthy people, without worrying about the value of $p$ 
 that originally generated the population.
+
+## discrete uniform
+
+Let $C$ be a finite, nonempty set of numbers. Choose one of these numbers uniformly at random (i.e., all 
+values in $C$ are equally likely). Call the chosen number $X$. Then $X$ is said to have the Discrete
+Uniform distribution with parameter $C$; we denote this by $X \sim DUnif(C)$.
+
+the PMF of $X \sim DUnif(C)$ is,
+
+$$P(X = x) = {1 \over {\lvert C \rvert}}$$
+
+## geo-metric
+
+
+
+## negative binomial
