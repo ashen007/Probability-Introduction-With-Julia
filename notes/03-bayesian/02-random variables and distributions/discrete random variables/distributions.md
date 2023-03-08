@@ -192,6 +192,31 @@ $$P(X = x) = {1 \over {\lvert C \rvert}}$$
 
 ## geo-metric
 
+Consider a sequence of independent Bernoulli trials, each with the same success probability $p \in (0, 1)$, with 
+trials performed until a success occurs. Let $X$ be the number of failures before the first successful trial. 
+Then $X$ has the Geometric distribution with parameter $p$; we denote this by $X \sim Geom(p)$.
 
+To get the Geometric PMF from the story, imagine the Bernoulli trials as a string of 0's (failures) ending in a 
+single 1 (success). Each 0 has probability $q = 1 - p$ and the final 1 has probability $p$, so a string of $k$ 
+failures followed by one success has probability ${(1 - p)^k}p$.
+
+$$P(X = k) = {(1 - p)^k}p$$
+for $k = 0, 1, 2, ... ,$.
+
+expected value,
+
+$$\eqalign{
+E(X) &= {\sum_{k=0}^\infty}{k{(1-p)^k}p} \\
+\text{where q = 1 - p. This sum looks unpleasant; it's not a geometric series because of the extra k multiplying 
+      each term. But we notice that each term looks similar to } kq^{k-1} \text{, the derivative of } q^k \\
+{\sum_{k=0}^\infty}{(1-p)^k} &= {1 \over {1 - (1 - p)}} = {1 \over p} \\
+{\sum_{k=0}^\infty}{k(1-p)^{k-1}} &= {1 \over p^2} \\
+\\
+     &= {\sum_{k=0}^\infty}{k{(1-p)}{(1-p)^{k-1}}p} \\
+     &= {p(1-p)}{\sum_{k=0}^\infty}{k{(1-p)^{k-1}}} \\
+\because {\sum_{k=0}^\infty}{k(1-p)^{k-1}} = {1 \over p^2} \\
+     &= {{p(1-p)} \over {p^2}} \\
+E(X) &= {(1-p) \over {p^2}}
+}$$
 
 ## negative binomial
