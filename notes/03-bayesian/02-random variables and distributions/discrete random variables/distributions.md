@@ -207,8 +207,12 @@ expected value,
 
 $$\eqalign{
 E(X) &= {\sum_{k=0}^\infty}{k{(1-p)^k}p} \\
-\text{where q = 1 - p. This sum looks unpleasant; it's not a geometric series because of the extra k multiplying 
-      each term. But we notice that each term looks similar to } kq^{k-1} \text{, the derivative of } q^k \\
+}$$
+
+where $q = 1 - p$ This sum looks unpleasant; it's not a geometric series because of the extra $k$ multiplying 
+each term. But we notice that each term looks similar to $kq^{k-1}$ the derivative of $q^k$,
+
+$$\eqalign{
 {\sum_{k=0}^\infty}{(1-p)^k} &= {1 \over {1 - (1 - p)}} = {1 \over p} \\
 {\sum_{k=0}^\infty}{k(1-p)^{k-1}} &= {1 \over p^2} \\
 \\
