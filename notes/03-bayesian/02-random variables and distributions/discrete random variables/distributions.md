@@ -220,7 +220,5 @@ $$\eqalign{
      &= {p(1-p)}{\sum_{k=0}^\infty}{k{(1-p)^{k-1}}} \\
 \because {\sum_{k=0}^\infty}{k(1-p)^{k-1}} = {1 \over p^2} \\
      &= {{p(1-p)} \over {p^2}} \\
-E(X) &= {(1-p) \over {p^2}}
+E(X) &= {(1-p) \over {p}}
 }$$
-
-## negative binomial

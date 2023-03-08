@@ -157,3 +157,18 @@ even in the most extreme case of dependence.
 
 This insight, that averages can be calculated in two ways, ungrouped or grouped is all that is needed to 
 prove linearity.
+
+## variance
+
+Like expected value, variance is a single-number summary of the distribution of a random variable. While the 
+expected value tells us the center of mass of a distribution, the variance tells us how spread out the 
+distribution is.
+
+the _variance_ of a discrete random variable $X$ is,
+$$Var(X) = E(X - EX)^2$$
+
+recall that when we write $E(X - EX)^2$, we mean the expectation of the random variable $(X - EX)^2$, 
+not $(E(X - EX))^2$ (which is 0 by linearity).
+
+for any random variable $X$,
+$$Var(X) = E(X^2) - (EX)^2$$
