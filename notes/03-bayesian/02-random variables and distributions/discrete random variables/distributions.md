@@ -62,20 +62,20 @@ trial). Then $n - X \sim Bin(n, q)$.
 
 expected value,
 
-$$eqalign{
+$$\eqalign{
 E(X) &= {{\sum}_{x=0}^n}{xP(X=x)} \\
-\because P(X=x) &= {{n \choose k}{p^k(1-p)^{n-k}}} \\
+\because P(X=x) = {{n \choose k}{p^k(1-p)^{n-k}}} \\
      &= {\sum_{k=0}^n}{k{n \choose k}{p^k(1-p)^{n-k}}} \\
 \\
-\because {n \choose k} &= {n \over k}{{n-1} \choose {k-1}} \\
+\because {n \choose k} = {n \over k}{{n-1} \choose {k-1}} \\
 \\
-\because k&=0, {k{n \choose k}{p^k(1-p)^{n-k}}} = 0, \\
+\because k=0, {k{n \choose k}{p^k(1-p)^{n-k}}} = 0, \\
      &= n{\sum_{k=1}^n}{{{n-1} \choose {k-1}}{p^k}{(1-p)^{n-k}}} \\
      &= np{\sum_{k=1}^n}{{{n-1} \choose {k-1}}{p^{k-1}}{(1-p)^{(n-1)-(k-1)}}} \\
-n-1 &= m, k-1 = j \\
+n-1 = m, k-1 = j \\
      &= np{\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} \\
 {\sum_{j=0}^m}{{{m} \choose {j}}{p^{j}}{(1-p)^{(m)-(j)}}} = 1, \because \sum PMF = 1 \\
-     = np
+     &= np
 }$$
 
 ### corollary
