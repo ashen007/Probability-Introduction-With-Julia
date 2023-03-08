@@ -158,6 +158,16 @@ even in the most extreme case of dependence.
 This insight, that averages can be calculated in two ways, ungrouped or grouped is all that is needed to 
 prove linearity.
 
+## law of the unconscious statistics
+
+$E(g(X))$ does not equal $g(E(X))$ in general if $g$ is not linear. So how do we correctly calculate $E(g(X))$? Since
+$g(X)$ is an random variable, one way is to first find the distribution of $g(X)$ and then use the definition
+of expectation. Perhaps surprisingly, it turns out that it is possible to find $E(g(X))$ directly using the 
+distribution of $X$, without first having to find the distribution of $g(X)$. This is done using the law of 
+the unconscious statistician (LOTUS).
+
+$$E(g(X)) = {\sum_{x}}{g(x)P(X=x)}$$
+
 ## variance
 
 Like expected value, variance is a single-number summary of the distribution of a random variable. While the 
