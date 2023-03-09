@@ -105,80 +105,20 @@ $${\lim}_{x \to -\infty} F(x) = 0 \text{ and } {\lim}_{x \to \infty} F(x) = 1$$
 
 ## function of random variables
 
-That is, if $X$ is a random variable, then $X^2$, $e^X$, and $sin(X)$ are also random variables, as is 
+That is, if $X$ is a random variable, then $X^2$, $e^X$, and $sin(X)$ are also random variables, as is
 $g(X)$ for any function $g : R \to R$.
 
-if we want, apply the same function $g$ to all the numbers inside the pebbles. Instead of the numbers 
-$X(s_1)$ through $X(s_6)$, we now have the numbers $g(X(s_1))$ through $g(X(s_6))$, which gives a new 
+if we want, apply the same function $g$ to all the numbers inside the pebbles. Instead of the numbers
+$X(s_1)$ through $X(s_6)$, we now have the numbers $g(X(s_1))$ through $g(X(s_6))$, which gives a new
 mapping from sample outcomes to real numbers we've created a new random variable, $g(X)$.
 
-_For an experiment with sample space $S$, a random variable $X$, and a function $g : R \to R, g(X)$ is 
-the random variable that maps $s$ to $g(X(s))$ for all $s \in S$._
+For an experiment with sample space $S$, a random variable $X$, and a function $g : R \to R, g(X)$ is
+the random variable that maps $s$ to $g(X(s))$ for all $s \in S$.
 
+<p align="center">
 <img height="582" src="../../../images/Asset 16.png" width="1269" alt="function of random variable"/>
+</p>
 
 This suggests a strategy for finding the PMF of a random variable with an unfamiliar distribution:
 try to express the random variable as a one-to-one function of a random variable with a known
 distribution.
-
-## expected value
-
-The definition of expectation for a discrete random variable is inspired by the weighted mean of a list of 
-numbers, with weights given by probabilities. The expected value (also called the expectation or mean) of 
-a discrete random variable $X$ whose distinct possible values are $x_1, x_2, ...$ is define by,
-
-$$E(X) = {\sum}_{j=1}^\infty {P(X = x_j)}$$
-
-$x_j$ is a value that random variable can get $P(X = x)$ is the PMF at $x$.
-
-if $X$ and $Y$ are discrete random variable with the same distribution, then $E(X) = E(Y)$. The converse of 
-the proposition is false since the expected value is just a one number summary, not nearly enough to specify 
-the entire distribution. it's a measure of where the "center" is but does not determine, for example, how 
-spread out the distribution is or how likely the random variable is to be positive.
-
-### linearity of expectation
-
-The most important property of expectation is linearity: the expected value of a sum of random variable is 
-the sum of the individual expected values.
-
-For any random variables X, Y and any constant c,
-
-$$\eqalign{
-E(X + Y) &= E(X) + E(Y), \\
-   E(cX) &= cE(X)
-}$$
-
-The second equation says that we can take out constant factors from an expectation, this is both intuitively 
-reasonable and easily verified from the definition. The first equation, $E(X + Y) = E(X) + E(Y)$, also 
-seems reasonable when $X$ and $Y$ are independent. What may be surprising is that it holds even if $X$ and $Y$
-are dependent! To build intuition for this, consider the extreme case where $X$ always equals $Y$. Then
-$X + Y = 2X$, and both sides of $E(X + Y ) = E(X) + E(Y)$ are equal to $2E(X)$, so linearity still holds 
-even in the most extreme case of dependence.
-
-This insight, that averages can be calculated in two ways, ungrouped or grouped is all that is needed to 
-prove linearity.
-
-## law of the unconscious statistics
-
-$E(g(X))$ does not equal $g(E(X))$ in general if $g$ is not linear. So how do we correctly calculate $E(g(X))$? Since
-$g(X)$ is an random variable, one way is to first find the distribution of $g(X)$ and then use the definition
-of expectation. Perhaps surprisingly, it turns out that it is possible to find $E(g(X))$ directly using the 
-distribution of $X$, without first having to find the distribution of $g(X)$. This is done using the law of 
-the unconscious statistician (LOTUS).
-
-$$E(g(X)) = {\sum_{x}}{g(x)P(X=x)}$$
-
-## variance
-
-Like expected value, variance is a single-number summary of the distribution of a random variable. While the 
-expected value tells us the center of mass of a distribution, the variance tells us how spread out the 
-distribution is.
-
-the _variance_ of a discrete random variable $X$ is,
-$$Var(X) = E(X - EX)^2$$
-
-recall that when we write $E(X - EX)^2$, we mean the expectation of the random variable $(X - EX)^2$, 
-not $(E(X - EX))^2$ (which is 0 by linearity).
-
-for any random variable $X$,
-$$Var(X) = E(X^2) - (EX)^2$$
