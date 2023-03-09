@@ -41,3 +41,17 @@ The PDF $f$ of a continuous random variable must satisfy the following two crite
 
 - non-negative: $f(x) \gteq 0$
 - integrates to 1: ${\int}_{-\infty}^{\infty}f(x)dx = 1$
+
+## expected value
+
+The expected value of a continuous random variable $X$ with PDF $f$ is,
+
+$$E(X) = {\int}_{-\infty}^{\infty}{xf(x)dx}$$
+
+The integral is taken over the entire real line, but if the support of $X$ is not the entire real line we can just 
+integrate over the support. The units in this definition make sense. Linearity of expectation holds for continuous 
+random variable, as it did for discrete random variable.
+
+LOTUS also holds for continuous random variable, replacing the sum with an integral and the PMF with the PDF:
+
+$$E(g(X)) = {{\int}_{-\infty}^{infty}{g(x)f(x)dx}}$$
