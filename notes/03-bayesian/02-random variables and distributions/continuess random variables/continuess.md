@@ -39,7 +39,7 @@ _To get a desired probability, integrate the PDF over the appropriate range._
 
 The PDF $f$ of a continuous random variable must satisfy the following two criteria,
 
-- non-negative: $f(x) \gteq 0$
+- non-negative: $f(x) \geq 0$
 - integrates to 1: ${\int}_{-\infty}^{\infty}f(x)dx = 1$
 
 ## expected value
