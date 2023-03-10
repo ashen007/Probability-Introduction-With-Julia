@@ -53,7 +53,7 @@ given by,
 
 $$\psi{(z)} = {\frac{1}{\sqrt{2\pi}}{e^{\frac{-z^2}{2}}}}, -\infty \lt z \lt \infty$$
 
-We write this as $Z \sim N(0, 1)$ since, as we will show, $Z$ has mean 0 and variance 1. ${\frac{1}{\sqrt{2{\pi}}}$,
+We write this as $Z \sim N(0, 1)$ since, as we will show, $Z$ has mean 0 and variance 1. $\frac{1}{\sqrt{2{\pi}}}$,
 constants are called normalizing constants because they normalize the total area under the PDF to 1.
 
 - symmetry of PDF: $\psi$ satisfies $\psi(z) = \psi(-z)$, $\psi$ is an even function
