@@ -80,3 +80,7 @@ $$F(x) = {\Phi}{\left( \frac{x-\mu}{\sigma} \right)}$$
 PDF is given by,
 
 $$f(x) = {\psi}{\left( \frac{x-\mu}{\sigma} \right)}{\frac{1}{\sigma}}$$
+
+PDF can be rewritten as,
+
+$$f(x) = {\frac{1}{{\sqrt{2\pi}}\sigma}}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$
