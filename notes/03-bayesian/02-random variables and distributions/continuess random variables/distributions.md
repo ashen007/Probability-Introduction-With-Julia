@@ -53,7 +53,7 @@ given by,
 
 $$\psi{(z)} = {\frac{1}{\sqrt{2\pi}}{e^{\frac{-z^2}{2}}}}, -\infty \lt z \lt \infty$$
 
-We write this as $Z \sim N(0, 1)$ since, as we will show, $Z$ has mean 0 and variance 1. ${\frac{1}{\sqrt{2\pi}}$,
+We write this as $Z \sim N(0, 1)$ since, as we will show, $Z$ has mean 0 and variance 1. ${\frac{1}{\sqrt{2{\pi}}}$,
 constants are called normalizing constants because they normalize the total area under the PDF to 1.
 
 - symmetry of PDF: $\psi$ satisfies $\psi(z) = \psi(-z)$, $\psi$ is an even function
@@ -95,11 +95,11 @@ Exponential random variable represents the waiting time until the first arrival 
 A continuous random variable $X$ is said to have the Exponential distribution with parameter $\lambda$, where 
 $\lambda > 0$, if its PDF is
 
-$$f(x) = {\lambda}e^{-\lambda{x}}, {x \gt 0}$
+$$f(x) = {\lambda}e^{-\lambda{x}}, {x \gt 0}$$
 
 the corresponding CDF is,
 
-$$F(x) = 1 - e^{-\lambda{x}}, x \gt 0$
+$$F(x) = 1 - e^{-\lambda{x}}, x \gt 0$$
 
 ### memory-less property
 
