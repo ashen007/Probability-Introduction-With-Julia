@@ -84,3 +84,28 @@ $$f(x) = {\psi}{\left( \frac{x-\mu}{\sigma} \right)}{\frac{1}{\sigma}}$$
 PDF can be rewritten as,
 
 $$f(x) = {\frac{1}{{\sqrt{2\pi}}\sigma}}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$
+
+## exponential
+
+The story of the Exponential distribution is analogous, but we are now waiting for a success in continuous
+time, where successes arrive at a rate of $\lambda$ successes per unit of time. The average number of successes
+in a time interval of length $t$ is ${\lambda}t$, though the actual number of successes varies randomly. An 
+Exponential random variable represents the waiting time until the first arrival of a success.
+
+A continuous random variable $X$ is said to have the Exponential distribution with parameter $\lambda$, where 
+$\lambda > 0$, if its PDF is
+
+$$f(x) = {\lambda}e^{-\lambda{x}}, {x \gt 0}$
+
+the corresponding CDF is,
+
+$$F(x) = 1 - e^{-\lambda{x}}, x \gt 0$
+
+### memory-less property
+
+A continuous distribution is said to have the memory-less property if a random variable $X$ from that distribution
+satisfies,
+
+$$P(X \geq s + t \mid X \geq s) = P(X \geq t)$$
+
+for all $s, t \geq 0$
