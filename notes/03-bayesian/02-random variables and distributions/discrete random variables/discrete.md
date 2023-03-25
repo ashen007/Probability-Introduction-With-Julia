@@ -70,7 +70,7 @@ The definition of expectation for a discrete random variable is inspired by the 
 numbers, with weights given by probabilities. The expected value (also called the expectation or mean) of
 a discrete random variable $X$ whose distinct possible values are $x_1, x_2, ...$ is define by,
 
-$$E(X) = {\sum}_{j=1}^\infty {P(X = x_j)}$$
+$$E(X) = {\sum}_{j=1}^\infty {xP(X = x_j)}$$
 
 $x_j$ is a value that random variable can get $P(X = x)$ is the PMF at $x$.
 
