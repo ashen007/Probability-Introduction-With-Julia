@@ -11,9 +11,6 @@ using Plots
 
 end
 
-# ╔═╡ 941b025b-e633-4b74-aa4e-550acb658b65
-
-
 # ╔═╡ 5f2dcaf1-bd64-46df-8113-c47eebbc4430
 md"""
 ## 1.2.2 coin flip
@@ -169,6 +166,115 @@ ps = [(1 - sampling_days_without_replace(i) / BigInt(365)^i) for i=0:ks]
 plot(0:100, ps)
 end
 
+# ╔═╡ e02cab23-bbf3-430c-aa5f-18f55c49800d
+md"""
+## 1.4.20 full house in poker
+"""
+
+# ╔═╡ 891e0f98-0682-4b76-b4c8-e823d7fcf3ae
+md"""
+A 5-card hand is dealt from a standard, well-shuffled 52-card deck. The hand is called a full house in poker if it consists of three cards of some rank and two cards of another rank, e.g., three 7's and two 10's (in any order). What is the probability of a full house?
+"""
+
+# ╔═╡ 15f2a986-f63a-49dd-8c71-546d3d3c2c29
+md"""
+All of the $52 \choose 5$ possible hands are equally likely by symmetry, so the naive definition is applicable. To find the number of full house hands, use the multiplication rule (and imagine the tree). There are 13 choices for what rank we have three of; Then there are 12 choices for what rank we have two of,
+
+$$P(\text{full house}) = \frac{13{4 \choose 3}12{4 \choose 2}}{{52 \choose 5}}$$
+"""
+
+# ╔═╡ ef08cecb-bec8-4e5d-a787-f089d0ff7d02
+(13 * binomial(4, 3) * 12 * binomial(4, 2)) / binomial(52, 5)
+
+# ╔═╡ 6454bd62-cca9-478e-9415-a32e26733705
+md"""
+## 1.4.21 newton-pepys problem
+"""
+
+# ╔═╡ 1d2251e1-5340-4492-b5ee-916e12ab5bb7
+md"""
+Isaac Newton was consulted about
+the following problem by Samuel Pepys, who wanted the information for gambling
+purposes. Which of the following events has the highest probability?
+
+A: At least one 6 appears when 6 fair dice are rolled. \
+B: At least two 6's appear when 12 fair dice are rolled. \
+C: At least three 6's appear when 18 fair dice are rolled.
+"""
+
+# ╔═╡ ab971e6b-4d50-41d7-afa1-d480913df0cf
+md"""
+- A
+
+  Instead of counting the number of ways to obtain at least one 6, it is easier to
+  count the number of ways to get no 6's. Getting no 6's is equivalent to sampling the
+  numbers 1 through 5 with replacement 6 times, so 56 outcomes are favorable to $A^c$
+
+$$P(A) = 1 - \frac{5^6}{6^6}$$
+"""
+
+# ╔═╡ 0d78f4b7-04fc-459e-a648-403816ff1ad9
+1 - ((5^6) / (6^6))
+
+# ╔═╡ e9e04897-8958-4909-9ded-20d912ecd332
+md"""
+- B
+
+  Again we count the outcomes in $B^c$ first. There are $5^{12}$ ways to get no 6's     in 12 die rolls. There are ${12 \choose 1}{5^{11}}$ ways to get exactly one 6: we     first choose which die lands 6, then sample the numbers 1 through 5 with              replacement for the other 11 dice. Adding these, we get the number of ways to fail    to obtain at least two 6's. (no 6's and exactly one 6 add up together)
+
+$$P(B) = 1 - \frac{{5^{12}} + {{12 \choose 1}{5^{11}}}}{6^{12}}$$
+"""
+
+# ╔═╡ 48d3303f-5647-4f69-9649-7916e0bfda9c
+1 - ((5^12 + binomial(12, 1) * 5^11) / 6^12)
+
+# ╔═╡ 7840a44e-eecf-4d82-8a77-f12a13696c51
+md"""
+- C
+
+  We count the outcomes in $C^c$, ways to get no 6's plus ways to get exactly one 6     plus to get exactly two 6's.
+
+$$P(C) = 1 - \frac{{5^{18}} + {{18 \choose 1}{5^{17}}} + {{18 \choose 2}{5^{16}}}}{6^{18}}$$
+"""
+
+# ╔═╡ 7dc3c779-ec74-4ac2-b24a-56ad188af967
+1 - ((5^18 + binomial(18, 1) * (5^17) + binomial(18, 2) * (5^16)) / 6^18)
+
+# ╔═╡ 53effc1d-5f97-4081-8e2c-f5e55a378d2b
+md"""
+## 1.6.4 de Montmort's matching problem
+"""
+
+# ╔═╡ 70657740-6da6-4b19-8d52-df5bd12adf90
+md"""
+Consider a well-shuffled deck of n cards, labeled 1 through n. You flip over the cards one by one, saying the numbers 1 through n as you do so. You win the game if, at some point, the number you say aloud is the same as the number on the card being 
+ipped over. What is the probability of winning?
+"""
+
+# ╔═╡ 9a418aab-e47d-4499-95e0-e11b5ebd07b1
+md"""
+Let $A_i$ be the event that the ith card in the deck has the number i written on it.
+We are interested in the probability of the union $A_1 \cup ... \cup A_n$: as long as at least one of the cards has a number matching its position in the deck, you will win the game.
+
+To find the probability of the union, we'll use inclusion-exclusion. First,
+
+$$P(A_i) = \frac{1}{n}$$
+
+for all $i$. the card numbered $i$ is equally likely to be in any of the $n$ positions in the deck, so it has probability $1/n$ of being in the ith spot. Second,
+since we require the cards numbered $i$ and $j$ to be in the ith and $j$th spots in the deck and allow the remaining $n - 2$ cards to be in any order, so $(n - 2)!$ out of $n!$ possibilities are favorable to $A_i \cap A_j$.
+
+$$P(A_i \cap A_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}$$
+
+similarly,
+
+$$P(A_i \cap A_j \cap A_k) = \frac{1}{n(n - 1)(n - 2)}$$
+
+In the inclusion-exclusion formula, there are $n$ terms involving one event, $n \choose 2$ terms involving two events, $n \choose 3$ terms involving three events, and so forth. By the symmetry of the problem, all $n$ terms of the form $P(A_i)$ are equal, all $n \choose 2$ terms of the form $P(A_i \cap A_j)$ are equal, and the whole expression simplifies considerably:
+
+$$\eqalign{P \left( \bigcup_{i=1}^n \right) &= \frac{n}{n} - \frac{n \choose 2}{n(n - 1)} + \frac{n \choose 3}{n(n - 1)(n - 2)} - ... + (-1)^{n+1}.\frac{1}{n!} \\
+&= 1 - \frac{1}{2!} + \frac{1}{3!} - ... + (-1)^{n+1}.\frac{1}{n!}}$$
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -186,7 +292,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.5"
 manifest_format = "2.0"
-project_hash = "4f64fb13c1f9db9ab551abc4cc540d562bf80b0a"
+project_hash = "f1b3c400258d1015668b9082bf0573cad334fd73"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -1178,7 +1284,6 @@ version = "1.4.1+0"
 
 # ╔═╡ Cell order:
 # ╠═2daab5ab-f232-4c0c-b050-49d6226ccfbb
-# ╠═941b025b-e633-4b74-aa4e-550acb658b65
 # ╠═5f2dcaf1-bd64-46df-8113-c47eebbc4430
 # ╠═3538c99a-7a6d-47a5-b7a0-fb535d7b496e
 # ╠═b0e15042-e3f0-4939-b932-83291da5bded
@@ -1202,5 +1307,20 @@ version = "1.4.1+0"
 # ╠═d8df2982-ad4d-4d78-bb90-9923ea86a5d3
 # ╠═79c854f2-2da3-4c42-9253-37c2aaff10c9
 # ╠═3cbf9695-292f-40ff-beab-85091e642a20
+# ╠═e02cab23-bbf3-430c-aa5f-18f55c49800d
+# ╠═891e0f98-0682-4b76-b4c8-e823d7fcf3ae
+# ╠═15f2a986-f63a-49dd-8c71-546d3d3c2c29
+# ╠═ef08cecb-bec8-4e5d-a787-f089d0ff7d02
+# ╠═6454bd62-cca9-478e-9415-a32e26733705
+# ╠═1d2251e1-5340-4492-b5ee-916e12ab5bb7
+# ╠═ab971e6b-4d50-41d7-afa1-d480913df0cf
+# ╠═0d78f4b7-04fc-459e-a648-403816ff1ad9
+# ╠═e9e04897-8958-4909-9ded-20d912ecd332
+# ╠═48d3303f-5647-4f69-9649-7916e0bfda9c
+# ╠═7840a44e-eecf-4d82-8a77-f12a13696c51
+# ╠═7dc3c779-ec74-4ac2-b24a-56ad188af967
+# ╠═53effc1d-5f97-4081-8e2c-f5e55a378d2b
+# ╠═70657740-6da6-4b19-8d52-df5bd12adf90
+# ╠═9a418aab-e47d-4499-95e0-e11b5ebd07b1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
