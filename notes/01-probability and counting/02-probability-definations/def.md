@@ -24,8 +24,8 @@ an event is a subset of sample space.
 | sample space                        | $S$                                                                |
 | $s$ is a possible outcome           | $s \in S$                                                          |
 | $A$ is an event                     | $A \subseteq S$                                                    |
-| $A$ occurred                        | $s_actual \in A$                                                   |
-| something must happen               | $s_actual \in S$                                                   |
+| $A$ occurred                        | $s_{actual} \in A$                                                 |
+| something must happen               | $s_{actual} \in S$                                                 |
 |                                     |                                                                    |
 | **new events from old events**      |                                                                    |
 | $A$ or $B$ (inclusive)              | $A \cup B$                                                         |
