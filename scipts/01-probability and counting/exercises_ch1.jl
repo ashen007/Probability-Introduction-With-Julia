@@ -220,6 +220,112 @@ As calculated in (a), there are ${221 \choose 111}$ paths from (0,0) to (110,111
 ${221 \choose 111}.{200 \choose 100}$
 """
 
+# ╔═╡ 454a338d-b0ca-494c-875f-c2847a45efcb
+md"""
+A certain family has 6 children, consisting of 3 boys and 3 girls. Assuming that all
+birth orders are equally likely, what is the probability that the 3 eldest children are the 3 girls?
+"""
+
+# ╔═╡ 1c45cbae-6db2-4de4-af96-d6a4fad7398e
+md"""
+Label the girls as 1, 2, 3 and the boys as 4, 5, 6. Think of the birth order is a
+permutation of 1, 2, 3, 4, 5, 6, e.g., we can interpret 314265 as meaning that child 3
+was born first, then child 1, etc. The number of possible permutations of the birth
+orders is 6!. Now we need to count how many of these have all of 1, 2, 3 appear before
+all of 4, 5, 6. This means that the sequence must be a permutation of 1, 2, 3 followed
+by a permutation of 4, 5, 6. So with all birth orders equally likely, we have,
+"""
+
+# ╔═╡ ef697a01-fcb0-48d7-96e5-f5ed9875a22d
+begin
+	elder_girls = factorial(3) * factorial(3)
+	total_ways = factorial(6)
+
+	elder_girls / total_ways
+end
+
+# ╔═╡ 17adb53f-667e-4b95-93b0-75034e6fae10
+md"""
+A city with 6 districts has 6 robberies in a particular week. Assume the robberies are
+located randomly, with all possibilities for which robbery occurred where equally likely. What is the probability that some district had more than 1 robbery?
+"""
+
+# ╔═╡ e0fed597-09e3-4fdb-bae4-630ef4de2582
+md"""
+There are $6^6$ possible configurations for which robbery occurred where. There are
+6! configurations where each district had exactly 1 of the 6, so the probability of the complement of the desired event is 6!/$6^6$. So the probability of some district having more than 1 robbery is,
+"""
+
+# ╔═╡ f4475b38-d676-442c-a6a2-8aea466eee8f
+begin
+	tot_ways = 6^6
+	no_more_than_single_rob = factorial(6)
+	more_than_single_rob = 1 - (no_more_than_single_rob / tot_ways)
+end
+
+# ╔═╡ 75f9ad5c-27cb-4026-8a9f-6e0c24d1908f
+md"""
+A college has 10 time slots for its courses, and blithely assigns courses to completely random time slots, independently. The college offers exactly 3 statistics courses. What is the probability that 2 or more of the statistics courses are in the same time slot?
+"""
+
+# ╔═╡ acbc4545-e45f-4027-bdcb-243210cf034a
+begin
+	ways_choose_timeslot = 10^3
+	no_crashes = 10 * 9 * 8
+	crashes = 1 - (no_crashes / ways_choose_timeslot)
+end
+
+# ╔═╡ c7577e8f-1d0c-4d0f-ba46-6e9fdf8643b8
+md"""
+A jar contains r red balls and g green balls, where r and g are fixed positive integers. A ball is drawn from the jar randomly (with all possibilities equally likely), and then a second ball is drawn randomly.
+"""
+
+# ╔═╡ f58243e9-8145-4d8b-b809-9113c093e1e5
+md"""
+a) Explain intuitively why the probability of the second ball being green is the same
+as the probability of the first ball being green.
+"""
+
+# ╔═╡ ffd58c73-ecbd-4504-8073-414585f2f9ca
+md"""
+This is true by symmetry. The first ball is equally likely to be any of the $g + r$
+balls, so the probability of it being green is $g/(g + r)$. But the second ball is also equally likely to be any of the $g + r$ balls (there aren’t certain balls that enjoy being chosen second and others that have an aversion to being chosen second); once we know whether the first ball is green we have information that affects our uncertainty about the second ball, but before we have this information, the second ball is equally likely to be any of the balls.
+"""
+
+# ╔═╡ 0bf13ce9-0124-462b-958b-a3ef1ac0c3f3
+md"""
+b) Define notation for the sample space of the problem,
+"""
+
+# ╔═╡ 42b4869b-a167-4060-90e6-0a36438086ab
+md"""
+Label the balls as $1, 2,...,g+r$, such that $1, 2,...,g$ are green and $g+1,...,g+r$
+are red. The sample space can be taken to be the set of all pairs $(a, b)$ with $a, b \in \lbrace 1,...,g + r \rbrace$ and $a \neq b$
+"""
+
+# ╔═╡ 92793d92-9a30-44ed-bd9d-6c786e223f7a
+md"""
+c) Suppose that there are 16 balls in total, and that the probability that the two balls are the same color is the same as the probability that they are dierent colors. What are r and g (list all possibilities)?
+"""
+
+# ╔═╡ 6b2a5a19-15b1-4799-bd2b-c37c6bd176aa
+md"""
+Let $A$ be the event of getting one ball of each color. In set notation, we can write
+$A = (G_1 \cap G_2^c) \cup (G_1^c \cap G_2)$. We are given that $P(A) = P(A^c)$, so
+$P(A)=1/2$. Then,
+
+$$P(A) = \frac{2gr}{(g + r)(g + r  1)} = \frac{1}{2}$$
+
+giving the quadratic equation
+
+$$g^2 + r^2 - 2gr - g - r = 0$$
+
+i.e., $(g - r)^2 = g + r$. But $g + r = 16$, so $g - r$ is $4$ or $-4$. Thus, either $g = 10$, $r = 6$, or $g = 6$, $r = 10$.
+"""
+
+# ╔═╡ 0e1031f5-2bd4-4a47-943b-62bd134f9827
+
+
 # ╔═╡ Cell order:
 # ╠═5d62393a-167a-4df3-b8ae-dff52e5ead84
 # ╠═98ded8f0-cbf9-11ed-1b33-2b3fe83448d6
@@ -252,3 +358,19 @@ ${221 \choose 111}.{200 \choose 100}$
 # ╠═01b22e63-66a4-4d6c-8683-c4c3899b868a
 # ╠═1505e28a-dedb-4f2d-84e9-c390af48c078
 # ╠═ca862cb7-aaee-46c2-9492-632afdbaf3dd
+# ╠═454a338d-b0ca-494c-875f-c2847a45efcb
+# ╠═1c45cbae-6db2-4de4-af96-d6a4fad7398e
+# ╠═ef697a01-fcb0-48d7-96e5-f5ed9875a22d
+# ╠═17adb53f-667e-4b95-93b0-75034e6fae10
+# ╠═e0fed597-09e3-4fdb-bae4-630ef4de2582
+# ╠═f4475b38-d676-442c-a6a2-8aea466eee8f
+# ╠═75f9ad5c-27cb-4026-8a9f-6e0c24d1908f
+# ╠═acbc4545-e45f-4027-bdcb-243210cf034a
+# ╠═c7577e8f-1d0c-4d0f-ba46-6e9fdf8643b8
+# ╠═f58243e9-8145-4d8b-b809-9113c093e1e5
+# ╠═ffd58c73-ecbd-4504-8073-414585f2f9ca
+# ╠═0bf13ce9-0124-462b-958b-a3ef1ac0c3f3
+# ╠═42b4869b-a167-4060-90e6-0a36438086ab
+# ╠═92793d92-9a30-44ed-bd9d-6c786e223f7a
+# ╠═6b2a5a19-15b1-4799-bd2b-c37c6bd176aa
+# ╠═0e1031f5-2bd4-4a47-943b-62bd134f9827
