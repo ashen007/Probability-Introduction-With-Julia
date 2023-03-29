@@ -194,6 +194,32 @@ begin
 	println(born_in_con_days)
 end
 
+# ╔═╡ ad85c9c0-9467-4e63-99af-7bb8ca2ec39f
+md"""
+How many paths are there from the point (0, 0) to the point (110, 111) in the plane such that each step either consists of going one unit up or one unit to the right?
+"""
+
+# ╔═╡ 01b22e63-66a4-4d6c-8683-c4c3899b868a
+md"""
+To reach point (110,111) from (0,0) a total of 221 steps must be taken, of which 110
+steps involve going one unit to the right and the remaining 111 involve going one unit up. If a path is encoded by a sequence of U's and R's denoting 'up' and 'right' respectively, to determine the possible paths we just need to specify where the U's are located in the sequence (or where the R's are located). So the number of paths is: 
+
+${221 \choose 111}$ or ${221 \choose 110}$ both of which evaluate to the same number.
+"""
+
+# ╔═╡ 1505e28a-dedb-4f2d-84e9-c390af48c078
+md"""
+How many paths are there from (0, 0) to (210, 211), where each step consists of going
+one unit up or one unit to the right, and the path has to go through (110, 111)?
+"""
+
+# ╔═╡ ca862cb7-aaee-46c2-9492-632afdbaf3dd
+md"""
+As calculated in (a), there are ${221 \choose 111}$ paths from (0,0) to (110,111). From there, to reach (210,211), 100 more unit steps should be taken in each direction (up, right). So the total number of paths is:
+
+${221 \choose 111}.{200 \choose 100}$
+"""
+
 # ╔═╡ Cell order:
 # ╠═5d62393a-167a-4df3-b8ae-dff52e5ead84
 # ╠═98ded8f0-cbf9-11ed-1b33-2b3fe83448d6
@@ -222,3 +248,7 @@ end
 # ╠═6a6d1cc9-1d7b-421d-8157-b52089287ca9
 # ╠═ef53b22a-256b-411f-9da1-dc164cce8311
 # ╠═6bbdb4be-96d3-47b3-807e-ce57ce15be43
+# ╠═ad85c9c0-9467-4e63-99af-7bb8ca2ec39f
+# ╠═01b22e63-66a4-4d6c-8683-c4c3899b868a
+# ╠═1505e28a-dedb-4f2d-84e9-c390af48c078
+# ╠═ca862cb7-aaee-46c2-9492-632afdbaf3dd
