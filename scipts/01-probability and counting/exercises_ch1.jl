@@ -323,54 +323,125 @@ $$g^2 + r^2 - 2gr - g - r = 0$$
 i.e., $(g - r)^2 = g + r$. But $g + r = 16$, so $g - r$ is $4$ or $-4$. Thus, either $g = 10$, $r = 6$, or $g = 6$, $r = 10$.
 """
 
-# ╔═╡ 0e1031f5-2bd4-4a47-943b-62bd134f9827
+# ╔═╡ e8339acb-f7db-4a6f-a713-7e5e6c35c112
+md"""
+Arby has a belief system assigning a number ${P_{Arby}(A)}$ between 0 and 1 to every
+event A (for some sample space). This represents Arby’s subjective degree of belief
+about how likely A is to occur. For any event A, Arby is willing to pay a price of
+1000 · ${P_{Arby}(A)}$ dollars to buy a certificate such as the one shown below:
 
+**Certificate**
+_The owner of this certificate can redeem it for $1000 if A
+occurs. No value if A does not occur, except as required
+by federal, state, or local law. No expiration date._
+
+Likewise, Arby is willing to sell such a certificate at the same price. Indeed, Arby
+is willing to buy or sell any number of certificates at this price, as Arby considers it the “fair” price. Arby, not having taken Stat 110, stubbornly refuses to accept the axioms of probability. In particular, suppose that there are two disjoint events A and B with ${P_{Arby}(A \cup B) \neq P_{Arby}(A) + P_{Arby}(B)}$. Show how to make Arby go bankrupt, by giving a list of transactions Arby is willing to make that will guarantee that Arby will lose money (you can assume it will be known whether A occurred and whether B occurred the day after any certificates are bought/sold).
+"""
+
+# ╔═╡ 0e1031f5-2bd4-4a47-943b-62bd134f9827
+md"""
+suppose, 
+
+$${{P_{Arby}(A \cup B)} \lt {P_{Arby}(A) + P_{Arby}(B)}}$$
+
+Call a certificate like the one show above, with any event C in place of A, a Ccertificate. Measuring money in units of thousands of dollars, Arby is willing to
+pay ${P_{Arby}(A) + P_{Arby}(B)}$ to buy an A-certificate and a B-certificate, and is willing to sell an $(A \cup B)$-certificate for ${P_{Arby}(A \cup B)}$. In those transactions, Arby loses ${P_{Arby}(A) + P_{Arby}(B) - P_{Arby}(A \cup B)}$ and will not recoup any of that loss because if A or B occurs, Arby will have to pay out an amount equal to the amount Arby receives (since it’s impossible for both A and B to occur).
+
+now suppose,
+
+$${P_{Arby}(A \cup B) \gt P_{Arby}(A) + P_{Arby}(B)}$$
+
+Measuring money in units of thousands of dollars, Arby is willing to sell an Acertificate for ${P_{Arby}(A)}$, sell a B-certificate for ${P_{Arby}(B)}$, and buy a $(A \cup B)$-certificate for $(A \cup B)$. In so doing, Arby loses ${P_{Arby}(A \cup B) - ({P_{Arby}(A)} + {P_{Arby}(B)})}$, and Arby won’t recoup any of this loss, similarly to the above. (In fact, in this case, even if A and B are not disjoint, Arby will not recoup any of the loss, and will lose more money if both A and B occur.)
+
+By buying/selling a suciently large number of certificates from/to Arby as described above, you can guarantee that you’ll get all of Arby’s money; this is called
+an arbitrage opportunity. This problem illustrates the fact that the axioms of probability are not arbitrary, but rather are essential for coherent thought (at least the first axiom, and the second with finite unions rather than countably infinite unions).
+
+_Arbitrary axioms allow arbitrage attacks, principled properties and perspectives
+on probability potentially prevent perdition._
+"""
+
+# ╔═╡ 742ac932-2d32-4d94-ba54-565c35a781cd
+md"""
+A card player is dealt a 13-card hand from a well-shuffled, standard deck of cards.
+What is the probability that the hand is void in at least one suit ("void in a suit" means having no cards of that suit)?
+"""
+
+# ╔═╡ ef050531-dc26-4ad7-ba1e-732c0d2d6805
+begin
+	choose_hand = binomial(52, 13)
+	void_in_single_suite = 4 * (binomial(39, 13) / choose_hand)
+	void_in_two_suite = 6 * (binomial(26, 13) / choose_hand)
+	void_in_three_suite = 4 * (binomial(13, 13) / choose_hand)
+	voids_in_atleast_hand = void_in_single_suite - void_in_two_suite + void_in_three_suite
+end
+
+# ╔═╡ cb4df133-a78a-49a5-81a9-568c26b29ef9
+md"""
+For a group of 7 people, find the probability that all 4 seasons (winter, spring,
+summer, fall) occur at least once each among their birthdays, assuming that all seasons are equally likely.
+"""
+
+# ╔═╡ e3244016-3285-47f2-9ca9-7d29491a6177
+begin
+	choose_a_season = binomial(7, 4)
+	at_least_one_season = 4 * (binomial(4, 1) / choose_a_season)
+	at_least_two_season = 6 * (binomial(4, 2) / choose_a_season)
+	at_least_three_season = 4 * (binomial(4, 3) / choose_a_season)
+
+	at_least_one_season - at_least_two_season + at_least_three_season
+end
 
 # ╔═╡ Cell order:
-# ╠═5d62393a-167a-4df3-b8ae-dff52e5ead84
-# ╠═98ded8f0-cbf9-11ed-1b33-2b3fe83448d6
+# ╟─5d62393a-167a-4df3-b8ae-dff52e5ead84
+# ╟─98ded8f0-cbf9-11ed-1b33-2b3fe83448d6
 # ╠═e2a66c2f-67c5-415d-a7ea-fff0f9640e43
-# ╠═7f5fd23f-4e3f-4b95-9d12-88c3f8857db2
+# ╟─7f5fd23f-4e3f-4b95-9d12-88c3f8857db2
 # ╠═34600447-6a6c-4383-b153-fb3119bdd318
-# ╠═37c9d160-620d-486c-9fa4-d334c80479ff
+# ╟─37c9d160-620d-486c-9fa4-d334c80479ff
 # ╠═2f305ce3-73de-4948-8f95-86fe805ab94f
 # ╠═b3dbdb50-e79e-4c2f-bbfc-2d8961809c06
-# ╠═9d9d47ac-e291-4435-8796-68d7b2beca89
+# ╟─9d9d47ac-e291-4435-8796-68d7b2beca89
 # ╠═cef8d26c-f3ba-4f70-bc90-f78a81780fc8
-# ╠═096426e5-b187-4db9-97f6-4a8297f5a9a8
+# ╟─096426e5-b187-4db9-97f6-4a8297f5a9a8
 # ╠═5e2e6f71-6069-4e1b-a575-1e3b6789c7b8
-# ╠═d3d185e2-514f-471d-98fe-f01340944df6
-# ╠═c51f80f7-d999-41de-ac88-e482cbf7e5a6
+# ╟─d3d185e2-514f-471d-98fe-f01340944df6
+# ╟─c51f80f7-d999-41de-ac88-e482cbf7e5a6
 # ╠═c73b64bd-4be2-4759-98c5-848f886ed9d8
-# ╠═92ac4f49-ba23-406e-b7b1-5db6227fc9c0
+# ╟─92ac4f49-ba23-406e-b7b1-5db6227fc9c0
 # ╠═038d81a0-1e70-488f-8f76-38f48bd0ca20
-# ╠═a1dd1fbf-099f-49ae-9978-96f4bb885a2e
+# ╟─a1dd1fbf-099f-49ae-9978-96f4bb885a2e
 # ╠═6f5e12d4-af24-41d6-b187-2b466857dd5e
-# ╠═3319d87d-7d3f-40ec-9e11-48d0d2856de0
+# ╟─3319d87d-7d3f-40ec-9e11-48d0d2856de0
 # ╠═9ff3282b-4a54-4ffa-be00-811e3b952151
-# ╠═9e9c150a-39bf-4fa9-9a22-7452918a51f6
+# ╟─9e9c150a-39bf-4fa9-9a22-7452918a51f6
 # ╠═f3ae8441-0572-42bb-b7b6-2b934ec97e6a
-# ╠═96700a89-1951-47c5-a449-a553a34f3936
+# ╟─96700a89-1951-47c5-a449-a553a34f3936
 # ╠═6a6d1cc9-1d7b-421d-8157-b52089287ca9
-# ╠═ef53b22a-256b-411f-9da1-dc164cce8311
+# ╟─ef53b22a-256b-411f-9da1-dc164cce8311
 # ╠═6bbdb4be-96d3-47b3-807e-ce57ce15be43
-# ╠═ad85c9c0-9467-4e63-99af-7bb8ca2ec39f
-# ╠═01b22e63-66a4-4d6c-8683-c4c3899b868a
-# ╠═1505e28a-dedb-4f2d-84e9-c390af48c078
-# ╠═ca862cb7-aaee-46c2-9492-632afdbaf3dd
-# ╠═454a338d-b0ca-494c-875f-c2847a45efcb
-# ╠═1c45cbae-6db2-4de4-af96-d6a4fad7398e
+# ╟─ad85c9c0-9467-4e63-99af-7bb8ca2ec39f
+# ╟─01b22e63-66a4-4d6c-8683-c4c3899b868a
+# ╟─1505e28a-dedb-4f2d-84e9-c390af48c078
+# ╟─ca862cb7-aaee-46c2-9492-632afdbaf3dd
+# ╟─454a338d-b0ca-494c-875f-c2847a45efcb
+# ╟─1c45cbae-6db2-4de4-af96-d6a4fad7398e
 # ╠═ef697a01-fcb0-48d7-96e5-f5ed9875a22d
-# ╠═17adb53f-667e-4b95-93b0-75034e6fae10
-# ╠═e0fed597-09e3-4fdb-bae4-630ef4de2582
+# ╟─17adb53f-667e-4b95-93b0-75034e6fae10
+# ╟─e0fed597-09e3-4fdb-bae4-630ef4de2582
 # ╠═f4475b38-d676-442c-a6a2-8aea466eee8f
-# ╠═75f9ad5c-27cb-4026-8a9f-6e0c24d1908f
+# ╟─75f9ad5c-27cb-4026-8a9f-6e0c24d1908f
 # ╠═acbc4545-e45f-4027-bdcb-243210cf034a
-# ╠═c7577e8f-1d0c-4d0f-ba46-6e9fdf8643b8
-# ╠═f58243e9-8145-4d8b-b809-9113c093e1e5
-# ╠═ffd58c73-ecbd-4504-8073-414585f2f9ca
-# ╠═0bf13ce9-0124-462b-958b-a3ef1ac0c3f3
-# ╠═42b4869b-a167-4060-90e6-0a36438086ab
-# ╠═92793d92-9a30-44ed-bd9d-6c786e223f7a
-# ╠═6b2a5a19-15b1-4799-bd2b-c37c6bd176aa
-# ╠═0e1031f5-2bd4-4a47-943b-62bd134f9827
+# ╟─c7577e8f-1d0c-4d0f-ba46-6e9fdf8643b8
+# ╟─f58243e9-8145-4d8b-b809-9113c093e1e5
+# ╟─ffd58c73-ecbd-4504-8073-414585f2f9ca
+# ╟─0bf13ce9-0124-462b-958b-a3ef1ac0c3f3
+# ╟─42b4869b-a167-4060-90e6-0a36438086ab
+# ╟─92793d92-9a30-44ed-bd9d-6c786e223f7a
+# ╟─6b2a5a19-15b1-4799-bd2b-c37c6bd176aa
+# ╟─e8339acb-f7db-4a6f-a713-7e5e6c35c112
+# ╟─0e1031f5-2bd4-4a47-943b-62bd134f9827
+# ╟─742ac932-2d32-4d94-ba54-565c35a781cd
+# ╠═ef050531-dc26-4ad7-ba1e-732c0d2d6805
+# ╟─cb4df133-a78a-49a5-81a9-568c26b29ef9
+# ╠═e3244016-3285-47f2-9ca9-7d29491a6177
