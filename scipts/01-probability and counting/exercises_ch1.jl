@@ -384,12 +384,28 @@ summer, fall) occur at least once each among their birthdays, assuming that all 
 
 # ╔═╡ e3244016-3285-47f2-9ca9-7d29491a6177
 begin
-	choose_a_season = binomial(7, 4)
-	at_least_one_season = 4 * (binomial(4, 1) / choose_a_season)
-	at_least_two_season = 6 * (binomial(4, 2) / choose_a_season)
-	at_least_three_season = 4 * (binomial(4, 3) / choose_a_season)
+	choose_a_season = 4^7
+	at_least_one_season = 4 * ((3^7) / choose_a_season)
+	at_least_two_season = 6 * ((2^7) / choose_a_season)
+	at_least_three_season = 4 * ((1^7) / choose_a_season)
 
-	at_least_one_season - at_least_two_season + at_least_three_season
+	1 - (at_least_one_season - at_least_two_season + at_least_three_season)
+end
+
+# ╔═╡ 35e48cc9-ca12-4e3c-85d7-69e3fecf4150
+md"""
+Alice attends a small college in which each class meets only once a week. She is
+deciding between 30 non-overlapping classes. There are 6 classes to choose from for each day of the week, Monday through Friday. Trusting in the benevolence of randomness, Alice decides to register for 7 randomly selected classes out of the 30, with all choices equally likely. What is the probability that she will have classes every day, Monday through Friday?
+"""
+
+# ╔═╡ c4f83a3e-c844-4084-8f07-5f4464e728ad
+begin
+	choose_classes = binomial(30, 7)
+	four_days = binomial(5, 4) * (binomial(24, 7) / choose_classes)
+	three_days = binomial(5, 2) * (binomial(18, 7) / choose_classes)
+	two_days = binomial(5, 3) * (binomial(12, 7) / choose_classes)
+
+	1 - (four_days - three_days + two_days)
 end
 
 # ╔═╡ Cell order:
@@ -445,3 +461,5 @@ end
 # ╠═ef050531-dc26-4ad7-ba1e-732c0d2d6805
 # ╟─cb4df133-a78a-49a5-81a9-568c26b29ef9
 # ╠═e3244016-3285-47f2-9ca9-7d29491a6177
+# ╟─35e48cc9-ca12-4e3c-85d7-69e3fecf4150
+# ╠═c4f83a3e-c844-4084-8f07-5f4464e728ad
