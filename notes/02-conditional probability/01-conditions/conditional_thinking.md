@@ -36,11 +36,11 @@ event that the second card is red.
 $$\eqalign{P(A \mid B) &= {{P(A \cap B)} \over {P(B)}} \\ 
 \\
       P(A \cap B) &= {{13 \dot 25} \over {52 \dot 51}} = {25 \over 204} \\
-             P(B) &= {26 \over 52} = {1 \over 2} \\
-\\}$$
+             P(B) &= {26 \over 52} = {1 \over 2}
+}$$
 
-\text{by symmetry: from a vantage point before having done the experiment, the second card 
-is equally likely to be any card in the deck.}
+by symmetry: from a vantage point before having done the experiment, the second card 
+is equally likely to be any card in the deck.
 
 $$\eqalign{P(A) &= {13 \over 52} = {1 \over 4} \\
 \\
