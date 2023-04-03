@@ -89,6 +89,91 @@ begin
 end
 
 # ╔═╡ 4e962cb5-4f07-419e-885e-6675e1c0bbbf
+md"""
+## example 2.2.7 a girl born in winter
+"""
+
+# ╔═╡ 0b62bd89-889a-4e72-9b3a-fa1710b41da6
+md"""
+A family has two children. Find the probability that both children are girls, given that at least one of the two is a girl who was born in winter. In addition to the assumptions from Example 2.2.5, assume that the four seasons are equally likely and that gender is independent of season.
+"""
+
+# ╔═╡ 9abf920c-6a93-49e6-9991-1908e43df4b4
+begin
+	winter = 1/ 4
+	winter_born_g = winter * (1 / 2)
+	at_least_one_winter_g = 1 - (1 - winter_born_g)^2
+
+	# p(both girls, at least one winter child) is same as p(both girls, at least one winter child)
+	both_g_and_at_least_one_winter_g = (1 / 4) * (1 - (3 / 4)^2)
+
+	both_g_and_at_least_one_winter_g / at_least_one_winter_g
+end
+
+# ╔═╡ 80e5cee9-09ec-4338-9049-a10892fc71b0
+md"""
+## example 2.3.7 random coin
+"""
+
+# ╔═╡ 42ec1d28-747a-4196-a5b1-c680a0ad6bfc
+md"""
+You have one fair coin, and one biased coin which lands Heads with probability 3/4. You pick one of the coins at random and flip it three times. It lands Heads all three times. Given this information, what is the probability that the coin you picked is the fair one?
+"""
+
+# ╔═╡ c416addd-f3c5-4959-b688-0673c68ed007
+begin
+	fair_coin = 1 / 2
+	three_heads = (((1 / 2)^3) * fair_coin) + (((3 / 4)^3) * (1 - fair_coin))
+	three_heads_given_fair_coin = (1 / 2)^3
+	fair_coin_given_three_heads = (three_heads_given_fair_coin * fair_coin) / three_heads
+end
+
+# ╔═╡ f3d8ff6a-22a2-4b6f-bace-a9e3fce926eb
+md"""
+## example 2.3.9 testing rare disease
+"""
+
+# ╔═╡ ed36a264-938f-477f-9bf3-206d793a59aa
+md"""
+A patient named Fred is tested for a disease called conditionitis, a medical condition that afflicts 1% of the population. The test result is positive, i.e., the test claims that Fred has the disease. Let $D$ be the event that Fred has the disease and $T$ be the event that he tests positive.
+
+Suppose that the test is "95% accurate"; there are different measures of the accuracy
+of a test, but in this problem it is assumed to mean that $P(T \mid D) = 0.95$ and
+$P(T^c \mid D^c) = 0.95$. The quantity $P(T \mid D)$ is known as the _sensitivity_ or _true positive rate_ of the test, and $P(T^c \mid D^c)$ is known as the _specificity_ or _true negative rate_.
+
+Find the conditional probability that Fred has conditionitis, given the evidence
+provided by the test result.
+"""
+
+# ╔═╡ 456031b9-7852-4479-b64b-c0f5b7f281a2
+begin
+	D = 0.01
+	T = 0.95 * 0.01 + 0.05 * 0.99 # p(T) = p(T | D)p(D) + p(T | D^c)p(D^c)
+	T_given_D = 0.95
+	D_given_T = (T_given_D * D) / T
+end
+
+# ╔═╡ 7ce8bbb3-dc5e-48f5-81e4-8ff9e73902b2
+md"""
+## example 2.3.10 six-fingered man
+"""
+
+# ╔═╡ 37378edb-d439-4cb7-82fa-0b392f13f1d0
+md"""
+A crime has been committed in a certain country. The perpetrator is one (and only one) of the n men who live in the country. Initially, these n men are all deemed equally likely to be the perpetrator. An eyewitness then reports that the crime was committed by a man with six fingers on his right hand.
+
+Let $p_0$ be the probability that an innocent man has six fingers on his right hand,
+and $p_1$ be the probability that the perpetrator has six fingers on his right hand,
+with $p_0 \lt p_1$. (We may have $p_1 \lt 1$, since eyewitnesses are not 100% reliable.) Let $a = p_0 / p_1$ and $b = {(1 - p_1)} / {(1 - p_0)}$.
+
+Rugen lives in the country. He is found to have six fingers on his right hand.
+
+a) Given this information, what is the probability that Rugen is the perpetrator?
+
+b) Now suppose that all n men who live in the country have their hands checked, and      Rugen is the only one with six fingers on his right hand. Given this information,     what is the probability that Rugen is the perpetrator?
+"""
+
+# ╔═╡ 3b6f1358-32f5-4a42-b055-6d04d70bbff6
 
 
 # ╔═╡ Cell order:
@@ -102,4 +187,15 @@ end
 # ╟─6e0c0bdb-fad5-4177-a283-d79a5551caf9
 # ╟─e9ec25e1-3166-454f-ade9-73e24bc4d15e
 # ╠═978d89aa-dec4-4c87-8cf1-8abdb12dd430
-# ╠═4e962cb5-4f07-419e-885e-6675e1c0bbbf
+# ╟─4e962cb5-4f07-419e-885e-6675e1c0bbbf
+# ╟─0b62bd89-889a-4e72-9b3a-fa1710b41da6
+# ╠═9abf920c-6a93-49e6-9991-1908e43df4b4
+# ╟─80e5cee9-09ec-4338-9049-a10892fc71b0
+# ╟─42ec1d28-747a-4196-a5b1-c680a0ad6bfc
+# ╠═c416addd-f3c5-4959-b688-0673c68ed007
+# ╟─f3d8ff6a-22a2-4b6f-bace-a9e3fce926eb
+# ╟─ed36a264-938f-477f-9bf3-206d793a59aa
+# ╠═456031b9-7852-4479-b64b-c0f5b7f281a2
+# ╟─7ce8bbb3-dc5e-48f5-81e4-8ff9e73902b2
+# ╟─37378edb-d439-4cb7-82fa-0b392f13f1d0
+# ╠═3b6f1358-32f5-4a42-b055-6d04d70bbff6
