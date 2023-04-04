@@ -174,6 +174,99 @@ b) Now suppose that all n men who live in the country have their hands checked, 
 """
 
 # ╔═╡ 3b6f1358-32f5-4a42-b055-6d04d70bbff6
+md"""
+Let $R$ be the event that Rugen is guilty and $M$ be the event that he has six fingers on his right hand.
+
+$$P(R \mid M) = \frac{P(M \mid R)P(R)}{P(M \mid R)P(R) + P(M \mid R^c)P(R^c)} = \frac{1}{1 + a(n - 1)}$$
+"""
+
+# ╔═╡ aa21fa19-bd6a-4962-8de6-75fdb29de1e8
+md"""
+Let $N$ be the event that none of the men in the country other than Rugen have six fingers on their right hands. With notation as above,
+
+$$\eqalign{P(R \mid M, N) &= \frac{P(M, N \mid R)P(R)}{P(M, N \mid R)P(R) + P(M, N \mid R^c)P(R^c)} \\ 
+&= \frac{{p_1(1 - p_0)^{n-1}}.{\frac{1}{n}}}{{p_1(1 - p_0)^{n-1}}.{\frac{1}{n}} + {{p_0(1 - p_1)}{(1 - p_0)^{n-2}}{(1 - \frac{1}{n})}}} \\ 
+&= \frac{1}{1 + ab(n - 1)}}$$
+"""
+
+# ╔═╡ ffb47839-30eb-4afa-a04d-8e070ca76d27
+md"""
+## example 2.4.4 random coin, continued
+"""
+
+# ╔═╡ 56e3fd6c-d600-43b5-af80-7f1c561ce465
+md"""
+Continuing with the scenario from Example 2.3.7, suppose that we have now seen our chosen coin land Heads three times. If we toss the coin a fourth time, what is the probability that it will land Heads once more?
+"""
+
+# ╔═╡ c461f53a-4226-4b4d-b52a-768872e694cb
+md"""
+As before, let $A$ be the event that the chosen coin lands Heads three times, and define a new event $H$ for the chosen coin landing Heads on the fourth toss. We are interested in $P(H \mid A)$. It would be very helpful to know whether we have the fair coin. LOTP with extra conditioning gives us $P(H \mid A)$ as a weighted average of $P(H \mid F, A)$ and $P(H \mid F^c, A)$, and within these two conditional probabilities we do know whether we have the fair coin:
+
+$$P(H \mid A) = P(H \mid F, A)P(F \mid A) + P(H \mid F^c, A)P(F^c \mid A)$$
+"""
+
+# ╔═╡ 20abebf5-3806-4b35-a37e-9e8c2d1754e6
+begin
+	fourth_H_given_3H_with_fair_coin = 1 / 2
+	fair_coin_given_3H = 0.23
+	fourth_H_given_3H_with_bias_coin = 3 / 4
+	bias_coin_given_3H = 1 - 0.23
+
+	fourth_H_given_3H_with_fair_coin * fair_coin_given_3H + fourth_H_given_3H_with_bias_coin * bias_coin_given_3H
+end
+
+# ╔═╡ d7c87fff-1ca8-4b6a-9ae9-4b1f7f4e93a8
+md"""
+## example 2.4.5 unanimous agreement
+"""
+
+# ╔═╡ bef58a83-82b5-4458-b63f-6fc39c980288
+md"""
+There are $n$ judges deciding a case. The suspect has prior probability $p$ of being
+guilty. Each judge votes whether to convict or acquit the suspect. With probability $s$, a systemic error occurs (e.g., the defense is incompetent). If a systemic error occurs, then the judges unanimously vote to convict (i.e., all $n$ judges vote to convict). Whether a systemic error occurs is independent of whether the suspect is guilty. Given that a systemic error doesn't occur and that the suspect is guilty, each judge has probability c of voting to convict, independently. Given that a systemic error doesn't occur and that the suspect is not guilty, each judge has probability $w$ of voting to convict, independently. Suppose that
+
+$$0 \lt p \lt 1, 0 \lt s \lt 1 \text{ and } 0 \lt w \lt \frac{1}{2} \lt c \lt 1$$
+"""
+
+# ╔═╡ d5ef3b3b-cf9a-4893-be2f-0f48cd2fa02a
+md"""
+a) For this part only, suppose that exactly $k$ out of $n$ judges vote to convict, where $k \lt n$. Given this information, find the probability that the suspect is guilty.
+"""
+
+# ╔═╡ 2fb05c5c-69e9-4469-b237-43ee4a6ac4d6
+md"""
+$A \text{: k out of n vote for convict} \\$
+$G \text{: suspect is guilty} \\$
+$H \text{: systematic error not occure and guilty} \\$
+
+$P(G \mid A) = \frac{P(A \mid G)P(G)}{P(A)}$
+$P(A) = P(A \mid H)P(H) + P(A \mid H^c)P(H^c)$
+$P(G \mid A) = \frac{p({c^k}{1-c}^{n-k})}{{p{c^k}{(1-c)^{n-k}}} + {(1-p){w^k}{(1-w)^{n-k}}}}$
+"""
+
+# ╔═╡ 6aaffc59-4668-4ab7-9f39-2ed34ecafddf
+md"""
+b) Now suppose that all $n$ judges vote to convict. Given this information, find the
+probability that the suspect is guilty.
+"""
+
+# ╔═╡ 8afef535-d2e0-4228-ab94-8b58b126b587
+md"""
+$U \text{: n out of n vote for convict}$
+$G \text{: suspect is guilty}$
+$E \text{: systematic error occure}$
+
+$P(G \mid U) = \frac{P(U \mid G)P(G)}{P(U)}$
+$P(G \mid U) = \frac{P(U \mid G)P(G)}{P(U \mid G)P(G) + P(U \mid G^c)P(G^c)}$
+
+$(U \mid G) = P(U \mid E, G)P(E \mid G) + P(U \mid E^c, G)P(E^c \mid G) = s + (1 - s)c^n$
+$(U \mid G^c) = P(U \mid E, G^c)P(E \mid G^c) + P(U \mid E^c, G^c)P(E^c \mid G^c) = s + (1 - s)w^n$
+
+$P(G \mid U) = \frac{p(s + (1 - s)c^n)}{p(s + (1 - s)c^n) + (1 - p)(s + (1 - s)w^n)}$
+"""
+
+# ╔═╡ d9117efb-812b-473e-abac-986d4e45d73e
 
 
 # ╔═╡ Cell order:
@@ -198,4 +291,16 @@ b) Now suppose that all n men who live in the country have their hands checked, 
 # ╠═456031b9-7852-4479-b64b-c0f5b7f281a2
 # ╟─7ce8bbb3-dc5e-48f5-81e4-8ff9e73902b2
 # ╟─37378edb-d439-4cb7-82fa-0b392f13f1d0
-# ╠═3b6f1358-32f5-4a42-b055-6d04d70bbff6
+# ╟─3b6f1358-32f5-4a42-b055-6d04d70bbff6
+# ╟─aa21fa19-bd6a-4962-8de6-75fdb29de1e8
+# ╟─ffb47839-30eb-4afa-a04d-8e070ca76d27
+# ╟─56e3fd6c-d600-43b5-af80-7f1c561ce465
+# ╟─c461f53a-4226-4b4d-b52a-768872e694cb
+# ╠═20abebf5-3806-4b35-a37e-9e8c2d1754e6
+# ╟─d7c87fff-1ca8-4b6a-9ae9-4b1f7f4e93a8
+# ╟─bef58a83-82b5-4458-b63f-6fc39c980288
+# ╟─d5ef3b3b-cf9a-4893-be2f-0f48cd2fa02a
+# ╠═2fb05c5c-69e9-4469-b237-43ee4a6ac4d6
+# ╟─6aaffc59-4668-4ab7-9f39-2ed34ecafddf
+# ╟─8afef535-d2e0-4228-ab94-8b58b126b587
+# ╠═d9117efb-812b-473e-abac-986d4e45d73e
