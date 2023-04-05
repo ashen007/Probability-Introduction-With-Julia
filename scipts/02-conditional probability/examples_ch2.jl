@@ -300,7 +300,7 @@ $P(G \mid U) = \frac{p(s + (1 - s)c^n)}{p(s + (1 - s)c^n) + (1 - p)(s + (1 - s)w
 # ╟─d7c87fff-1ca8-4b6a-9ae9-4b1f7f4e93a8
 # ╟─bef58a83-82b5-4458-b63f-6fc39c980288
 # ╟─d5ef3b3b-cf9a-4893-be2f-0f48cd2fa02a
-# ╠═2fb05c5c-69e9-4469-b237-43ee4a6ac4d6
+# ╟─2fb05c5c-69e9-4469-b237-43ee4a6ac4d6
 # ╟─6aaffc59-4668-4ab7-9f39-2ed34ecafddf
 # ╟─8afef535-d2e0-4228-ab94-8b58b126b587
 # ╠═d9117efb-812b-473e-abac-986d4e45d73e
