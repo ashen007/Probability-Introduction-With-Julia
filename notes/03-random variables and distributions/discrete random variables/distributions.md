@@ -46,7 +46,7 @@ $$P(X = k) = {n \choose k} {p^k} {(1 - p)^{n - k}}$$
 for $k=0, 1, ..., n$ and $P(X = k) = 0$ otherwise.
 
 <p align="center">
-<img height="899" src="../../../../images/03/binomial_experiment.png" width="699" alt="binomial experiment"/>
+<img height="899" src="../../../images/03/binomial_experiment.png" width="699" alt="binomial experiment"/>
 </p>
 
 For a fixed number of trials $n$, $X$ tends to be larger when the success probability is high and lower when

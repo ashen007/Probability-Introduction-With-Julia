@@ -32,7 +32,7 @@ does it help us to derive properties of random variables.
 $$x^2 + y^2 = 1$$
 
 <p>
-<img height="582" src="../../../images/Asset 15.png" width="894" alt="random variable"/>
+<img height="582" src="../../images/Asset%2015.png" width="894" alt="random variable"/>
 </p>
 
 A random variable maps the sample space into the real line. The random variable $X$ depicted
@@ -100,7 +100,7 @@ $$F(a) = {\lim}_{x \to a^{+} F(x)}$$
 $${\lim}_{x \to -\infty} F(x) = 0 \text{ and } {\lim}_{x \to \infty} F(x) = 1$$
 
 <p align="center">
-<img height="500" src="../../../images/03/binomial_experiment_cdf.png" width="800" alt="cdf"/>
+<img height="500" src="../../images/03/binomial_experiment_cdf.png" width="800" alt="cdf"/>
 </p>
 
 ## function of random variables
@@ -116,7 +116,7 @@ For an experiment with sample space $S$, a random variable $X$, and a function $
 the random variable that maps $s$ to $g(X(s))$ for all $s \in S$.
 
 <p align="center">
-<img height="582" src="../../../images/Asset 16.png" width="1269" alt="function of random variable"/>
+<img height="582" src="../../images/Asset%2016.png" width="1269" alt="function of random variable"/>
 </p>
 
 This suggests a strategy for finding the PMF of a random variable with an unfamiliar distribution:
