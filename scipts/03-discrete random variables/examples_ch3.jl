@@ -115,6 +115,133 @@ elk_recapture(20)
 elk_recapture(35)
 
 # ╔═╡ db70c980-3756-4be4-8d3a-b6204ee0a3bd
+begin
+	X = Distributions.Binomial(50, 0.5)
+	cdf_df = DataFrame(x=0:50, pmf=pdf(X), cdf=[Distributions.cdf(X, x) for x in 0:50])
+	
+	cdf_plt = data(cdf_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:pmf :cdf], col=dims(1), row=dims(2))
+	draw(cdf_plt)
+end
+
+# ╔═╡ 69d6d1fa-dbc5-4eee-9a91-30f509e58ee0
+md"""
+---
+"""
+
+# ╔═╡ 05aaa840-7736-4711-af11-e7ff9a19ec58
+md"""
+Benford’s law states that in a very large variety of real-life data sets, the first digit approximately follows a particular distribution with about a 30% chance of a 1, an 18% chance of a 2, and in general,
+
+$$P(D = j) = {log_{10}}{\left( \frac{j+1}{j} \right)}, \text{ for j } \in \lbrace 1, 2, 3, ..., 9 \rbrace$$
+
+where $D$ is the first digit of a randomly chosen element. Check whether this is a valid PMF
+"""
+
+# ╔═╡ 1a2fc19b-3b24-4f23-8836-4162e7311d33
+begin
+
+	function benford(j)
+		log10((j + 1)/j)
+	end
+
+	ben = [benford(j) for j=1:9]
+
+	if sum(ben) == 1
+		if all(ben .> 0)
+			println("valid")
+		end
+	end
+
+end
+
+# ╔═╡ e1eac5ae-7cc5-4f17-a181-8bc2ced18aa9
+md"""
+---
+"""
+
+# ╔═╡ cacddc3f-b68f-4a86-b262-23039f5420de
+md"""
+In a chess tournament, 10 games are being played, independently. Each game ends in a win for one player with probability 0.4 and ends in a draw (tie) with probability 0.6. Find the probability that exactly 5 games end in a draw.
+"""
+
+# ╔═╡ 672bea96-78b5-4e0a-afc6-e3ec8da933e4
+pdf(Distributions.Binomial(10, 0.6), 5)
+
+# ╔═╡ 34b082bf-33ee-4a54-8e32-f0cfc1069cf2
+md"""
+---
+"""
+
+# ╔═╡ 3f8b9e22-3065-4bfe-b146-d185cdfb4de4
+md"""
+There are two coins, one with probability $p_1$ of Heads and the other with probability $p_2$ of Heads. One of the coins is randomly chosen (with equal probabilities for the two coins). It is then flipped $n \geq 2$ times. Let $X$ be the number of times it lands Heads.
+"""
+
+# ╔═╡ 307cfab9-328e-4407-849f-276d97582cef
+md"""
+${A} \text{ be the event choose first coin}$
+
+$$\eqalign{
+P(X=k) &= P(X=k \mid A)P(A) + P(X=k \mid A^c)P(A^c) \\
+&= \frac{1}{2}({n \choose k}{p_1}^k(1 - p_1)^{n-k}) + \frac{1}{2}({n \choose k}{p_2}^k(1 - p_2)^{n-k})
+}$$
+"""
+
+# ╔═╡ 3f8a27d4-755f-433b-bc3c-f5f1e6678a5f
+md"""
+Is the distribution of $X$ Binomial if $p_1 = p_2$?
+"""
+
+# ╔═╡ a2d86c2a-6c86-4fef-9365-55e6d7da90a6
+md"""
+$$\eqalign{
+P(X=k) &= P(X=k \mid A)P(A) + P(X=k \mid A^c)P(A^c) \\
+&= \frac{1}{2}({n \choose k}{p_1}^k(1 - p_1)^{n-k}) + \frac{1}{2}({n \choose k}{p_2}^k(1 - p_2)^{n-k}) \\
+\\
+if p_1 = p_2, \\
+&= \frac{1}{2}({n \choose k}{p_1}^k(1 - p_1)^{n-k}) + \frac{1}{2}({n \choose k}{p_1}^k(1 - p_1)^{n-k}) \\
+&= {n \choose k}{p_1}^k(1 - p_1)^{n-k}
+}$$
+"""
+
+# ╔═╡ 8aedbd2f-6e23-4846-a4f0-967eae2c8ecf
+md"""
+Is the distribution of $X$ Binomial if $p_1 \neq p_2$?
+"""
+
+# ╔═╡ 31b32c04-7a2b-41e0-9601-39a92497c7a0
+md"""
+No. A mixture of two Binomials is not Binomial (except in the degenerate case $p_1 = p_2$). Marginally, each toss has probability $(p_1 + p_2) / 2$ of landing Heads, but the tosses are not independent since earlier tosses give information about which coin was chosen, which in turn gives information about later tosses.
+
+Let $n$ be large, and imagine repeating the entire experiment many times (each repetition consists of choosing a random coin and flipping it $n$ times). We would expect to see either approximately $np_1$ Heads about half the time, and approximately $np_2$ Heads about half the time. In contrast, with a $Bin(n, p)$ distribution we would expect to see approximately $np$ Heads; no fixed choice of $p$ can create the behavior described above.
+"""
+
+# ╔═╡ 6037cd0e-f175-41dc-ba39-203573a0ef0e
+md"""
+----
+"""
+
+# ╔═╡ b82ccea1-6c93-4e66-8443-6007103e1231
+md"""
+There are $n$ eggs, each of which hatches a chick with probability $p$ (independently). Each of these chicks survives with probability $r$, independently. Let $H$ be the number of eggs that hatch and $X$ be the number of hatchlings that survive. Find the distribution of $H$ and the distribution of $X$.
+"""
+
+# ╔═╡ bd901877-5363-447d-817c-840949b3b98c
+md"""
+Think of each egg as a Bernoulli trial, where for $H$ we define “success" to mean hatching, while for $X$ we define “success" to mean surviving. For example, in the picture above, the events $H = 7, X = 5$ occurred. By the story of the Binomial, $H \sim Bin(n, p)$. The eggs independently have probability $pr$ each of hatching a chick that survives. By the story of the Binomial, we have $H \sim Bin(n, pr)$.
+"""
+
+# ╔═╡ 02d5e7f8-8488-46f6-83ac-54824d60d80a
+md"""
+---
+Let $X$ be the number of purchases that a customer will make on the online site for a certain company (in some specified time period). Suppose that the PMF of $X$ is
+
+$$P(X = k) = e^{-\lambda}{\lambda^k}/{k!}$$
+
+for $k = 0, 1, 2, ...$. This distribution is called the Poisson distribution with parameter $\lambda$.
+"""
+
+# ╔═╡ 828b3aee-91a7-48d8-9a5b-34348b61d6de
 
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1502,5 +1629,23 @@ version = "3.5.0+0"
 # ╠═a76a7269-0a4b-4923-a459-c22f4cda76c2
 # ╠═6c320877-1bab-4099-ac52-5f0c02efe0c0
 # ╠═db70c980-3756-4be4-8d3a-b6204ee0a3bd
+# ╟─69d6d1fa-dbc5-4eee-9a91-30f509e58ee0
+# ╟─05aaa840-7736-4711-af11-e7ff9a19ec58
+# ╠═1a2fc19b-3b24-4f23-8836-4162e7311d33
+# ╟─e1eac5ae-7cc5-4f17-a181-8bc2ced18aa9
+# ╟─cacddc3f-b68f-4a86-b262-23039f5420de
+# ╠═672bea96-78b5-4e0a-afc6-e3ec8da933e4
+# ╟─34b082bf-33ee-4a54-8e32-f0cfc1069cf2
+# ╟─3f8b9e22-3065-4bfe-b146-d185cdfb4de4
+# ╟─307cfab9-328e-4407-849f-276d97582cef
+# ╟─3f8a27d4-755f-433b-bc3c-f5f1e6678a5f
+# ╟─a2d86c2a-6c86-4fef-9365-55e6d7da90a6
+# ╟─8aedbd2f-6e23-4846-a4f0-967eae2c8ecf
+# ╟─31b32c04-7a2b-41e0-9601-39a92497c7a0
+# ╟─6037cd0e-f175-41dc-ba39-203573a0ef0e
+# ╟─b82ccea1-6c93-4e66-8443-6007103e1231
+# ╟─bd901877-5363-447d-817c-840949b3b98c
+# ╟─02d5e7f8-8488-46f6-83ac-54824d60d80a
+# ╠═828b3aee-91a7-48d8-9a5b-34348b61d6de
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
