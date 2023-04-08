@@ -61,6 +61,28 @@ begin
 end
 
 # ╔═╡ 5f0574a1-4b13-4faf-8f1b-ffe4f3577006
+begin
+	tl = pdf(Distributions.Binomial(10, 0.5))
+	tr = pdf(Distributions.Binomial(10, 1/8))
+	bl = pdf(Distributions.Binomial(100, 0.03))
+	br = pdf(Distributions.Binomial(100, 4/5))
+end
+
+# ╔═╡ 5a5019db-cc91-4ad6-ac75-1c0ee4a55a62
+begin
+	t_df = DataFrame(x=0:10, l=tl, r=tr)
+	t_plt = data(t_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:l :r], col=dims(1), row=dims(2))
+	draw(t_plt)
+end
+
+# ╔═╡ 093b276e-427a-417b-8540-ae05338a0e9f
+begin
+	b_df = DataFrame(x=0:100, l=bl, r=br)
+	b_plt = data(b_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:l :r], col=dims(1), row=dims(2))
+	draw(b_plt)
+end
+
+# ╔═╡ 64f6fdb2-d98e-4b95-95ec-1aeed63a2da8
 
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1438,5 +1460,8 @@ version = "3.5.0+0"
 # ╠═b521cbf5-3a6c-4428-899f-ef7924fe1e49
 # ╠═c15624c0-b6cb-4740-88d1-7bf44c509b86
 # ╠═5f0574a1-4b13-4faf-8f1b-ffe4f3577006
+# ╠═5a5019db-cc91-4ad6-ac75-1c0ee4a55a62
+# ╠═093b276e-427a-417b-8540-ae05338a0e9f
+# ╠═64f6fdb2-d98e-4b95-95ec-1aeed63a2da8
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
