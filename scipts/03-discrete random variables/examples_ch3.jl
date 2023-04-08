@@ -83,6 +83,38 @@ begin
 end
 
 # ╔═╡ 64f6fdb2-d98e-4b95-95ec-1aeed63a2da8
+md"""
+## example 3.4.3 elk capture-recapture
+"""
+
+# ╔═╡ 7bc7b2cb-52f3-488a-a046-394b90a17657
+md"""
+A forest has $N$ elk. Today, $m$ of the elk are captured, tagged, and released into the wild. At a later date, $n$ elk are recaptured at random. Assume that the recaptured elk are equally likely to be any set of $n$ of the elk, e.g., an elk that has been captured does not learn how to avoid beingcaptured again.
+"""
+
+# ╔═╡ cc31c9a7-2097-4045-b2ec-c3a6a3b52566
+md"""
+By the story of the Hypergeometric, the number of tagged elk in the recaptured sample is $HGeom(m, N - m, n)$. The $m$ tagged elk in this story correspond to the white balls and the $N - m$ untagged elk correspond to the black balls. Instead of sampling $n$ balls from the urn, we recapture $n$ elk from the forest.
+"""
+
+# ╔═╡ da5f625c-9c63-4883-8ffc-5e447793a0a2
+function elk_recapture(n)
+	ps = pdf(Distributions.Hypergeometric(100, 50, n))
+	elk_plt = data((; x=0:n, y=ps)) * (visual(Lines) + visual(Scatter)) * mapping(:x, :y)
+	draw(elk_plt)
+
+end
+
+# ╔═╡ 515e44c3-2d2c-4b28-87bd-5e46503b9283
+elk_recapture(10)
+
+# ╔═╡ a76a7269-0a4b-4923-a459-c22f4cda76c2
+elk_recapture(20)
+
+# ╔═╡ 6c320877-1bab-4099-ac52-5f0c02efe0c0
+elk_recapture(35)
+
+# ╔═╡ db70c980-3756-4be4-8d3a-b6204ee0a3bd
 
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1462,6 +1494,13 @@ version = "3.5.0+0"
 # ╠═5f0574a1-4b13-4faf-8f1b-ffe4f3577006
 # ╠═5a5019db-cc91-4ad6-ac75-1c0ee4a55a62
 # ╠═093b276e-427a-417b-8540-ae05338a0e9f
-# ╠═64f6fdb2-d98e-4b95-95ec-1aeed63a2da8
+# ╟─64f6fdb2-d98e-4b95-95ec-1aeed63a2da8
+# ╟─7bc7b2cb-52f3-488a-a046-394b90a17657
+# ╟─cc31c9a7-2097-4045-b2ec-c3a6a3b52566
+# ╠═da5f625c-9c63-4883-8ffc-5e447793a0a2
+# ╠═515e44c3-2d2c-4b28-87bd-5e46503b9283
+# ╠═a76a7269-0a4b-4923-a459-c22f4cda76c2
+# ╠═6c320877-1bab-4099-ac52-5f0c02efe0c0
+# ╠═db70c980-3756-4be4-8d3a-b6204ee0a3bd
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
