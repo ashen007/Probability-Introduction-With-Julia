@@ -241,8 +241,150 @@ $$P(X = k) = e^{-\lambda}{\lambda^k}/{k!}$$
 for $k = 0, 1, 2, ...$. This distribution is called the Poisson distribution with parameter $\lambda$.
 """
 
-# ╔═╡ 828b3aee-91a7-48d8-9a5b-34348b61d6de
+# ╔═╡ 3d8aefde-19ed-4949-8b9c-d2436ad45b7c
+md"""
+a) Find $P(X \geq 1)$ and $P(X \geq 2)$ without summing infinite series.
+"""
 
+# ╔═╡ 828b3aee-91a7-48d8-9a5b-34348b61d6de
+md"""
+$$\eqalign{
+{\sum_{k=0}^\infty}P(X = k) &= 1 \\
+P(X = 0) + {\sum_{k=1}^\infty}P(X = k) &= 1 \\
+\\
+P(X \geq 1) &= 1 - P(X = 0) \\
+&= 1 - e^{-\lambda}\\
+\\
+P(X \geq 2) &= 1 - P(X = 0) - P(X = 1) \\
+&= 1 - e^{-\lambda} - {\lambda}{e^{-\lambda}}
+}$$
+"""
+
+# ╔═╡ a857fd2e-d5b4-452b-91ca-f01a87cfa8c9
+md"""
+b) Suppose that the company only knows about people who have made at least one purchase on their site (a user sets up an account to make a purchase, but someone who has never made a purchase there doesn’t appear in the customer database). If the company computes the number of purchases for everyone in their database, then these data are draws from the conditional distribution of the number of purchases, given that at least one purchase is made. Which of the following is the conditional PMF of $X$ given $X \geq 1$? (This conditional distribution is called a truncated Poisson distribution.)
+"""
+
+# ╔═╡ a5f9de32-14e1-4ff4-91e2-e9974c98e59b
+md"""
+$$\eqalign{
+P(X = k \mid X \geq 1) &= \frac{P(X \geq 1 \mid X = k)P(X = k)}{P(X \geq 1)} \\
+&= \frac{1 * (e^{-\lambda}{\lambda^k}/{k!})}{1 - e^{-\lambda}} \\
+&= \frac{e^{-\lambda}{\lambda^k}}{k!{(1 - e^{-\lambda})}}
+}$$
+"""
+
+# ╔═╡ ae0794c3-11c1-40ea-8dc8-e8c30e0221ca
+md"""
+---
+A book has $n$ typos. Two proofreaders, Prue and Frida, independently read the book. Prue catches each typo with probability $p_1$ and misses it with probability $q_1 = 1 - p_1$, independently, and likewise for Frida, who has probabilities $p_2$ of catching and $q_2 = 1 - q_1$ of missing each typo. Let $X_1$ be the number of typos caught by Prue, $X_2$ be the number caught by Frida, and $X$ be the number caught by at least one of the two proofreaders.
+"""
+
+# ╔═╡ 76fbb3f2-4188-45a8-bb1e-80069f585827
+md"""
+a) Find the distribution of $X$,
+"""
+
+# ╔═╡ 6097f1a5-1888-4cbf-aa0a-7b246cb07972
+md"""
+$\text{at least one of them find} = 1 - \text{both miss}$
+$\text{at least one of them find} = 1 - {q_1}{q_2}$
+$X \sim Bin(n, (1 - {q_1}{q_2}))$
+"""
+
+# ╔═╡ 55be08f5-06cd-42c1-8387-f3892c06b965
+md"""
+b) For this part only, assume that $p_1 = p_2$. Find the conditional distribution of $X_1$ given that $X_1 + X_2 = t$.
+"""
+
+# ╔═╡ bf910cd4-4d22-4e24-ba00-58464de8f92d
+md"""
+$$\eqalign{
+p_1 &= p_2 = p, q_1 = q_2 = q \\
+X_1 &\sim Bin(n, p) \\
+X_2 &\sim Bin(n, p) \\
+\\
+\because X_1 + X_2 = t \\
+X_1 + X_2 &\sim Bin(n, p) + Bin(n, p) \\
+X_1 + X_2 &\sim Bin(2n, p) \\
+\\
+P(X_1 = k \mid X_1 + X_2 = t) &= \frac{P(X_1 + X_2 = t \mid X_1 = k)P(X_1 = k)}{P(X_1 + X_2 = t)} \\
+\because X_1 \text{ and } X_2 \text{ independent,} X_2 = t - k \\
+&= \frac{P(X_2 = t - k)P(X_1 = k)}{P(X_1 + X_2 = t)} \\
+&= \frac{\left[{n \choose {t-k}}{p^{t-k}}{q^{n-t+k}}\right]\left[{n \choose k}{p^k}{q^{n-k}}\right]}{\left[{2n \choose t}{p^t}{q^{2n-t}}\right]} \\
+&= \frac{{n \choose {t-k}}{n \choose k}}{2n \choose t}
+}$$
+"""
+
+# ╔═╡ 8c0fd386-7cf1-47e3-be6f-cb31fe3ebfe9
+md"""
+---
+People are arriving at a party one at a time. While waiting for more people to arrive they entertain themselves by comparing their birthdays. Let $X$ be the number of people needed to obtain a birthday match, i.e., before person $X$ arrives there are no two people with the same birthday, but when person $X$ arrives there is a match. For example, $X = 10$ would mean that the first nine people to arrive all have different birthdays, but the tenth person to arrive matches one of the first nine. Find $P(X = 3 \text{ or } X = 4)$
+"""
+
+# ╔═╡ 2af4fa16-b741-404f-8917-05d5f65c1311
+md"""
+The support of $X$ is $\lbrace 2, 3, ..., 366 \rbrace$ since if there are $365$ people there and no match, then every day of the year is accounted for and the $366$th person will create a match. Let’s start with a couple simple cases and then generalize:
+
+$P(X = 2) = \frac{1}{365}$
+
+since the second person has a $\frac{1}{365}$ chance of having the same birthday as the first,
+
+$P(X = 3) = \frac{364}{365}.\frac{2}{365}$
+
+since $X = 3$ means that the second person didn’t match the first but the third person matched one of the first two. In general, for $2 \leq k \leq 366$ we have
+
+$$\eqalign{P(X = k) &= P(X \lt k - 1 \text{ and } X = k) \\
+&= \frac{365.364...(365 - k + 2)}{365^{k-1}}.\frac{k-1}{365} \\
+}$$
+
+Therefore,
+$P(X = 3 \text{ or } X = 4) = P(X = 3) + P(X = 4)$
+"""
+
+# ╔═╡ b0da76a7-6eb2-4971-a197-bfdd110566fb
+md"""
+---
+Let $X$ be the number of Heads in 10 fair coin tosses.
+"""
+
+# ╔═╡ f6780eb6-e16e-4a73-994a-8af1ecc4ff3e
+md"""
+a) Find the conditional PMF of $X$, given that the first two tosses both land Heads.
+"""
+
+# ╔═╡ 3c74c9b7-2cfc-49f3-8f7d-4c836937e18a
+md"""
+$$\eqalign{
+P(X = k \mid X_2 = 2) &= P(X_2 + X_8 = k \mid X_2 = 2) \\
+&= P(X_8 = k - 2) \\
+&= {8 \choose {k-2}}{\frac{1}{2}}^8 \\
+&= {\frac{1}{256}}{8 \choose {k-2}}
+}$$
+"""
+
+# ╔═╡ 385382ee-0844-4f2b-85fe-29893a30cbed
+md"""
+b) Find the conditional PMF of , given that at least two tosses land Heads.
+"""
+
+# ╔═╡ cd3b7740-c614-411f-99e0-d04d1f70a7aa
+md"""
+at least two heads, $P(X \geq 2)$. given that k will be,
+
+$$\eqalign{
+P(X = k \mid X \geq 2) &= \frac{P(X \geq 2 \mid X = k)P(X = k)}{P(X \geq 2)} \\
+\\
+\because P(X \geq 2) &= 1 - P(X \lt 2) \\
+&= 1 - {\frac{1}{2}}^10 - 10{(\frac{1}{2})^10} \\
+&= 1 - 11(\frac{1}{2})^10 \\
+&= \frac{1013}{1024} \\
+\\
+P(X = k \mid X \geq 2) &= \frac{P(X = k)}{P(X \geq 2)} \\
+&= \frac{{10 \choose k}{\frac{1}{1024}}}{\frac{1013}{1024}} \\
+&= {\frac{1}{1013}}{10 \choose k}
+}$$
+"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1646,6 +1788,21 @@ version = "3.5.0+0"
 # ╟─b82ccea1-6c93-4e66-8443-6007103e1231
 # ╟─bd901877-5363-447d-817c-840949b3b98c
 # ╟─02d5e7f8-8488-46f6-83ac-54824d60d80a
-# ╠═828b3aee-91a7-48d8-9a5b-34348b61d6de
+# ╟─3d8aefde-19ed-4949-8b9c-d2436ad45b7c
+# ╟─828b3aee-91a7-48d8-9a5b-34348b61d6de
+# ╟─a857fd2e-d5b4-452b-91ca-f01a87cfa8c9
+# ╟─a5f9de32-14e1-4ff4-91e2-e9974c98e59b
+# ╟─ae0794c3-11c1-40ea-8dc8-e8c30e0221ca
+# ╟─76fbb3f2-4188-45a8-bb1e-80069f585827
+# ╟─6097f1a5-1888-4cbf-aa0a-7b246cb07972
+# ╟─55be08f5-06cd-42c1-8387-f3892c06b965
+# ╟─bf910cd4-4d22-4e24-ba00-58464de8f92d
+# ╟─8c0fd386-7cf1-47e3-be6f-cb31fe3ebfe9
+# ╟─2af4fa16-b741-404f-8917-05d5f65c1311
+# ╟─b0da76a7-6eb2-4971-a197-bfdd110566fb
+# ╟─f6780eb6-e16e-4a73-994a-8af1ecc4ff3e
+# ╟─3c74c9b7-2cfc-49f3-8f7d-4c836937e18a
+# ╟─385382ee-0844-4f2b-85fe-29893a30cbed
+# ╠═cd3b7740-c614-411f-99e0-d04d1f70a7aa
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
