@@ -386,6 +386,37 @@ P(X = k \mid X \geq 2) &= \frac{P(X = k)}{P(X \geq 2)} \\
 }$$
 """
 
+# ╔═╡ 9d6d749b-37f1-4e0c-9c95-035060ffee9e
+md"""
+---
+## example 4.2.2 binomial expectation
+"""
+
+# ╔═╡ f9369890-06c6-4cc8-902e-a8d4815b305a
+md"""
+$$\eqalign{
+P(X = k) &= {n \choose k}{p^k}{q^{n-k}} \\
+E(X) &= {\sum_{k=0}^n}{kP(X=k)} \\
+&= {\sum_{k=0}^n}{k}{n \choose k}{p^k}{q^{n-k}} \\
+k = 0, E(X) = 0 \\
+\therefore E(X) &= {\sum_{k=1}^n}{k}{n \choose k}{p^k}{q^{n-k}} \\
+\because {k{n \choose k}} &= n{{n-1} \choose {k-1}} \\
+E(X) &= {\sum_{k=1}^n}{n}{{n-1} \choose {k-1}}{p^k}{q^{n-k}} \\
+&= {\sum_{k-1=0}^n}{n}{{n-1} \choose {k-1}}{p^k}{q^{n-k}} \\
+\\
+k - 1 = j \\
+E(X) &= {\sum_{j=0}^n}{n}{{n-1} \choose {j}}{p^{j+1}}{q^{n-j-1}} \\
+&= {\sum_{j=0}^n}{np}{{n-1} \choose {j}}{p^{j}}{q^{n-1-j}} \\
+&= np{\sum_{j=0}^n}{{n-1} \choose {j}}{p^{j}}{q^{(n-1)-j}} \\
+\\
+\because {\sum_{j=0}^n}{{n-1} \choose {j}}{p^{j}}{q^{(n-1)-j}} &= {\sum{P(Y = j)}} = 1 \\
+E(X) &= np
+}$$
+"""
+
+# ╔═╡ 74fa9dcb-a19b-407d-b4d6-db348414aabc
+
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1803,6 +1834,9 @@ version = "3.5.0+0"
 # ╟─f6780eb6-e16e-4a73-994a-8af1ecc4ff3e
 # ╟─3c74c9b7-2cfc-49f3-8f7d-4c836937e18a
 # ╟─385382ee-0844-4f2b-85fe-29893a30cbed
-# ╠═cd3b7740-c614-411f-99e0-d04d1f70a7aa
+# ╟─cd3b7740-c614-411f-99e0-d04d1f70a7aa
+# ╠═9d6d749b-37f1-4e0c-9c95-035060ffee9e
+# ╟─f9369890-06c6-4cc8-902e-a8d4815b305a
+# ╠═74fa9dcb-a19b-407d-b4d6-db348414aabc
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
