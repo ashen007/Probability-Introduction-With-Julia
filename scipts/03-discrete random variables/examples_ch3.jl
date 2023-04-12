@@ -517,6 +517,67 @@ E(X) &= E(X_1) + E(X_2) + \dots + E(X_r) \\
 }$$
 """
 
+# ╔═╡ d1af330e-e6be-4d04-a983-b0b41ddf8ece
+md"""
+## example 4.3.12 coupon collector
+"""
+
+# ╔═╡ 10c20e04-8970-4111-8c8f-8f4cb65f622c
+md"""
+Suppose there are $n$ types of toys, which you are collecting one by one, with the goal of getting a complete set. When collecting toys, the toy types are random (as is sometimes the case, for example, with toys included in cereal boxes or included with kids' meals from a fast food restaurant). Assume that each time you collect a toy, it is equally likely to be any of the $n$ types. What is the expected number of toys needed until you have a complete set?
+"""
+
+# ╔═╡ cff82343-b2c3-4f5c-b7fc-2d55dd9298e0
+md"""
+${N: \text{ number of toys need to complete set}}$
+$E(N) = N_1 + N_2 + \dots + N_n, N_i = \text{ number of toys until new toy type found}$
+$N_i \sim Fs({n - j - 1}/{n})$
+
+$$\eqalign{
+\because E_1 &= 1, E_2 = \frac{n-1}{n}, E_n = \frac{n + 1 - j}{n} \\
+E(N) &= 1 + \frac{1}{(n-1)/n} + \frac{1}{(n-2)/n} + \dots + \frac{1}{(n-n+1)/n} \\
+&= 1 + \frac{n}{(n-1)} + \frac{n}{(n-2)} + \dots + {n} \\
+&= n{\sum_{j=1}}\frac{1}{j} \\
+}$$
+"""
+
+# ╔═╡ db50f0b0-1b65-49cc-b380-a1e648914364
+md"""
+## example 4.4.5 Distinct birthdays, birthday matches
+"""
+
+# ╔═╡ f09e4288-599f-4c1e-b17d-eb1d76248872
+md"""
+In a group of $n$ people, under the usual assumptions about birthdays, what is the expected number of distinct birthdays among the $n$ people, i.e., the expected number of days on which at least one of the people was born? What is the expected number of birthday matches, i.e., pairs of people with the same birthday?
+"""
+
+# ╔═╡ a6313699-feaa-47f6-8e7a-18f32e3180d5
+md"""
+$X: \text{number of distinct birthdays}$
+$X = I_1 + \dots + I_{365}$
+$\text{where, }{I_j}\text{ if i th day reprecented,}$
+
+$$\eqalign{
+E(T_j) &= P(i^{th}\text{ day is reprecented}) = 1 - P(\text{no one born on day i}) \\
+&= 1 - (\frac{364}{365})^n \\
+& \text{by linearity of expectation} \\
+E(X) &= 365\left(1 - (\frac{364}{365})^n \right) \\
+\\
+Y \text{ be the number of birthdays matched} \\
+Y &= J_1 + \dots + J_{n \choose 2} \\
+&\text{where $J_i$ is the indicator of the $i^{th}$ pair of people having the same birthday} \\
+E(Y) &= {n \choose 2} * \frac{1}{365}
+}$$
+"""
+
+# ╔═╡ 6c9fca6c-6870-449c-9842-3bad7a73dddf
+md"""
+## example 4.6.5 binomial variance
+"""
+
+# ╔═╡ 678a061f-aeb9-4cbf-ad5a-8cf054f3f5e1
+
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1946,5 +2007,13 @@ version = "3.5.0+0"
 # ╠═66d1dc30-f37e-4911-b962-18136b07a41d
 # ╟─81d25e62-dd7e-4448-8955-6ec2118a375e
 # ╟─2754d630-97cc-4164-b703-8266818839dc
+# ╟─d1af330e-e6be-4d04-a983-b0b41ddf8ece
+# ╟─10c20e04-8970-4111-8c8f-8f4cb65f622c
+# ╟─cff82343-b2c3-4f5c-b7fc-2d55dd9298e0
+# ╟─db50f0b0-1b65-49cc-b380-a1e648914364
+# ╟─f09e4288-599f-4c1e-b17d-eb1d76248872
+# ╟─a6313699-feaa-47f6-8e7a-18f32e3180d5
+# ╟─6c9fca6c-6870-449c-9842-3bad7a73dddf
+# ╠═678a061f-aeb9-4cbf-ad5a-8cf054f3f5e1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
