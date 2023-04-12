@@ -415,7 +415,32 @@ E(X) &= np
 """
 
 # ╔═╡ 74fa9dcb-a19b-407d-b4d6-db348414aabc
+md"""
+## example 4.2.3 hypergeometric expectation
+"""
 
+# ╔═╡ 293a8db4-25b8-45ac-8f66-5030c3678769
+md"""
+$$\eqalign{
+P(X = k) &= \frac{{w \choose k}{b \choose {n-k}}}{{w+b \choose n}} \\
+E(X) &= {\sum_{k=0}^n}\frac{k{w \choose k}{b \choose {n-k}}}{{w+b \choose n}} \\
+\because k = 0, E(X) = 0 \\
+E(X) &= {\sum_{k=1}^n}\frac{k{w \choose k}{b \choose {n-k}}}{{w+b \choose n}} \\
+\because k{w \choose k} = w{{w-1} \choose {k-1}} \\
+\\
+E(X) &= {\sum_{k=1}^n}\frac{w{{w-1} \choose {k-1}}{b \choose {n-k}}}{{{w+b} \choose n}} \\
+&= {\sum_{k-1=0}^n}\frac{w{{w-1} \choose {k-1}}{b \choose {n-k}}}{{{w+b} \choose n}} \\
+k - 1 = j \\
+E(X) &= w{\sum_{j=0}^n}\frac{{{w-1} \choose {j}}{b \choose {n-1-j}}}{{{w+b} \choose n}} \\
+w + b = m \\
+n{m \choose n} = m{{m-1} \choose {n-1}} \\
+{m \choose n} = {\frac{m}{n}}{{m-1} \choose {n-1}} \\
+E(X) &= w{\sum_{j=0}^n}\frac{{{w-1} \choose {j}}{b \choose {n-1-j}}}{{\frac{m}{n}}{{m-1} \choose {n-1}}} \\
+&= {w\frac{n}{m}}{{\sum_{j=0}^n}\frac{{{w-1} \choose {j}}{b \choose {n-1-j}}}{{{w+b-1} \choose {n-1}}}} \\
+{{\sum_{j=0}^n}\frac{{{w-1} \choose {j}}{b \choose {n-1-j}}}{{{w+b-1} \choose {n-1}}}} &= \sum{P(Y=i)} = 1 \\
+E(X) &= {w\frac{n}{w+b}}
+}$$
+"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1835,8 +1860,9 @@ version = "3.5.0+0"
 # ╟─3c74c9b7-2cfc-49f3-8f7d-4c836937e18a
 # ╟─385382ee-0844-4f2b-85fe-29893a30cbed
 # ╟─cd3b7740-c614-411f-99e0-d04d1f70a7aa
-# ╠═9d6d749b-37f1-4e0c-9c95-035060ffee9e
+# ╟─9d6d749b-37f1-4e0c-9c95-035060ffee9e
 # ╟─f9369890-06c6-4cc8-902e-a8d4815b305a
-# ╠═74fa9dcb-a19b-407d-b4d6-db348414aabc
+# ╟─74fa9dcb-a19b-407d-b4d6-db348414aabc
+# ╟─293a8db4-25b8-45ac-8f66-5030c3678769
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
