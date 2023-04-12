@@ -576,7 +576,89 @@ md"""
 """
 
 # ╔═╡ 678a061f-aeb9-4cbf-ad5a-8cf054f3f5e1
+md"""
+binomial as an indicator variable,
 
+$I_j = j^{th} \text{ trail being success}$
+$$\eqalign{
+X &= I_1 + I_2 + \dots + I_n \\
+Var(I_j) &= E({I_j}^2) - (E(I_j))^2 \\
+&= p - p^2 \\
+&= p(1 - p) \\
+\\
+E({I_j}^2) &= E({I_j}) = p \\
+\because I_j = {I_j}^2 \\
+Var(X) &= Var(I_1) + Var(I_2) + \dots + Var(I_n) \\
+&= n * Var(I_j) \\
+&= np(1 - p)
+}$$
+"""
+
+# ╔═╡ 4d23e995-9ba3-4f8b-8b4c-047c9d41aca7
+md"""
+## poisson distribution
+"""
+
+# ╔═╡ 3be30ce2-2269-4cae-9606-1eab9eab2142
+begin
+	ns = 1:10
+	p1 = [pdf(Distributions.Poisson(0.001), i) for i in ns]
+	p2 = [pdf(Distributions.Poisson(1.5), i) for i in ns]
+	p3 = [pdf(Distributions.Poisson(100), i) for i in ns]
+
+	p_df = DataFrame(x=ns, d1=p1, d2=p2, d3=p3)
+	p_plt = data(p_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:d1 :d2 :d3], col=dims(1), row=dims(2))
+	draw(p_plt)
+end
+
+# ╔═╡ 487fcbab-6b68-4eda-90c1-8b12cdd98214
+md"""
+## example 4.7.4
+"""
+
+# ╔═╡ 6fd97083-5aee-412e-bcd3-0786afa88b23
+md"""
+There are $k$ distinguishable balls and n distinguishable boxes. The balls are randomly placed in the boxes, with all $n^k$ possibilities equally likely. Problems in this setting are called occupancy problems, and are at the core of many widely used algorithms in computer science.
+
+(a) Find the expected number of empty boxes (fully simplified, not as a sum). \
+(b) Find the probability that at least one box is empty. Express your answer as a
+sum of at most $n$ terms. \
+(c) Now let $n = 1000$, $k = 5806$. The expected number of empty boxes is then
+approximately 3. Find a good approximation as a decimal for the probability that
+at least one box is empty. The handy fact $e3 \approx 20$ may help.
+"""
+
+# ╔═╡ 84a93510-46b4-4997-8194-e54265fe7410
+md"""
+$$\eqalign{
+I(A) &= I_1 + I_2 + \dots + I_n \\
+I_j &= j^{th} \text{ box is empty} \\
+\\
+E(I_j) &= P(I_j = 1) = \frac{(n - 1)^k}{n^k} \\
+&= {\left( \frac{n - 1}{n} \right)}^k \\
+&= {\left( 1 - \frac{1}{n} \right)}^k \\
+\\
+E(\sum{I_j}) &= n{\left( 1 - \frac{1}{n} \right)}^k \\
+}$$
+"""
+
+# ╔═╡ 13e515aa-c647-481f-8661-a21346dacd71
+md"""
+$$\eqalign{
+P(A_1 \cup A_2 \cup \dots \cup A_n) &= {\sum_{j=1}^{n}}{P(A_j)} - {\sum_{j=1}^{n}}{P(A_j \cap A_k)} + \dots + (-1)^{j+1}P(A_1 \cap A_2 \cap \dots \cap A_n) \\
+&= {n \choose 1}{\left( \frac{n - 1}{n} \right)}^k - {n \choose 2}{\left( \frac{n - 1}{n} \right)}^k + \dots + (-1)^{j+1}{n \choose j}{\left(\frac{n-j}{n}\right)}^k \\
+&= {\sum_{j=1}^{n-1}}(-1)^{j+1}{n \choose j}{\left({1-\frac{j}{n}}\right)}^k
+}$$
+"""
+
+# ╔═╡ d986ec9a-d8e1-49d4-805f-27d4a2780be9
+md"""
+The number $X$ of empty boxes is approximately $Pois(3)$, since there are a lot of
+boxes but each is very unlikely to be empty, the probability that a specific box is
+empty is $(1 - \frac{1}{n})^k = \frac{1}{n} . E(X) \approx 0.003$. So,
+
+$P(X \leq 1) = 1 - P(X = 0) \approx 1 - e^{-3} \approx 1 - \frac{1}{20} = 0.95$
+"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -2014,6 +2096,13 @@ version = "3.5.0+0"
 # ╟─f09e4288-599f-4c1e-b17d-eb1d76248872
 # ╟─a6313699-feaa-47f6-8e7a-18f32e3180d5
 # ╟─6c9fca6c-6870-449c-9842-3bad7a73dddf
-# ╠═678a061f-aeb9-4cbf-ad5a-8cf054f3f5e1
+# ╟─678a061f-aeb9-4cbf-ad5a-8cf054f3f5e1
+# ╟─4d23e995-9ba3-4f8b-8b4c-047c9d41aca7
+# ╠═3be30ce2-2269-4cae-9606-1eab9eab2142
+# ╟─487fcbab-6b68-4eda-90c1-8b12cdd98214
+# ╟─6fd97083-5aee-412e-bcd3-0786afa88b23
+# ╟─84a93510-46b4-4997-8194-e54265fe7410
+# ╟─13e515aa-c647-481f-8661-a21346dacd71
+# ╟─d986ec9a-d8e1-49d4-805f-27d4a2780be9
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
