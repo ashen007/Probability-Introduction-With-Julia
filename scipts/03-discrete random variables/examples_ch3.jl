@@ -442,6 +442,81 @@ E(X) &= {w\frac{n}{w+b}}
 }$$
 """
 
+# ╔═╡ 8ff78ed8-cabb-4334-90a7-449b7350944c
+md"""
+## geometric and negative binomial distributions
+"""
+
+# ╔═╡ 21ab02d9-31c5-478f-9aaf-9f2d0962aed4
+begin
+	ks = 1:20
+	d1 = [pdf(Distributions.Geometric(0.1), i) for i in ks]
+	d2 = [pdf(Distributions.Geometric(0.5), i) for i in ks]
+	d3 = [pdf(Distributions.Geometric(0.9), i) for i in ks]
+
+	g_df = DataFrame(x=ks, d1=d1, d2=d2, d3=d3)
+	g_plt = data(g_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:d1 :d2 :d3], col=dims(1), row=dims(2))
+	draw(g_plt)
+end
+
+# ╔═╡ 6685c382-6371-4891-8670-85ac582e1e30
+md"""
+## example 4.3.6 geometric expectation
+"""
+
+# ╔═╡ 052eec1b-b61f-4f9d-ae61-f2a604598300
+md"""
+$$\eqalign{
+P(X = k) &= {q^k}{p} \\
+E(X) &= {\sum_{k=0}^{\infty}}{k{q^k}{p}} \\
+\\
+{\sum_{k=0}^{\infty}}{q^k} &= 1 + q + q^2 + \dots + \infty \\
+{\sum_{k=0}^{\infty}}{q^k} &= 1 + q(1 + q + q^2 + \dots + \infty) \\
+{\sum_{k=0}^{\infty}}{q^k} - q\left({\sum_{k=0}^{\infty}}{q^k}\right) &= 1 \\
+{\sum_{k=0}^{\infty}}{q^k} &= \frac{1}{(1 - q)} \\
+\text{get expectation from diravative, } \\
+\frac{d{{\sum}_{k=0}^{\infty}}{q^k}}{dq} &= \frac{d\left(\frac{1}{(1 - q)}\right)}{dq} \\
+{\sum_{k=0}^{\infty}}{kq^{k-1}} &= \frac{1}{(1 - q)^2} \\
+{\sum_{k=0}^{\infty}}{kpq^{k}} &= \frac{pq}{(1 - q)^2} \\
+{\sum_{k=0}^{\infty}}{kpq^{k}} &= \frac{pq}{(p)^2} \\
+&= \frac{q}{p}
+}$$
+"""
+
+# ╔═╡ 66d1dc30-f37e-4911-b962-18136b07a41d
+begin
+	rs = 1:10
+	nb1 = [pdf(Distributions.NegativeBinomial(1, 0.1), i) for i in rs]
+	nb2 = [pdf(Distributions.NegativeBinomial(3, 0.5), i) for i in rs]
+	nb3 = [pdf(Distributions.NegativeBinomial(9, 0.9), i) for i in rs]
+
+	nb_df = DataFrame(x=rs, d1=nb1, d2=nb2, d3=nb3)
+	nb_plt = data(nb_df) * (visual(Lines) + visual(Scatter)) * mapping(:x, [:d1 :d2 :d3], col=dims(1), row=dims(2))
+	draw(nb_plt)
+end
+
+# ╔═╡ 81d25e62-dd7e-4448-8955-6ec2118a375e
+md"""
+## example 4.3.11 negative binomial expectation
+"""
+
+# ╔═╡ 2754d630-97cc-4164-b703-8266818839dc
+md"""
+$$\eqalign{
+X \sim NBin(r, p) \\
+X = X_1 + X_2 + X_3 + \dots + X_r \text{ where, } X_i \sim Geom(p) \\
+\\
+X_1 \text{ is the number of failiers before first success} \\
+X_2 \text{ is the number of failiers between first and second success} \\
+\\}$$
+
+$$\eqalign{
+E(X) &= E(X_1) + E(X_2) + \dots + E(X_r) \\
+&= \frac{q}{p} + \frac{q}{p} + \dots + \frac{q}{p} \\
+&= \frac{rq}{p}
+}$$
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1864,5 +1939,12 @@ version = "3.5.0+0"
 # ╟─f9369890-06c6-4cc8-902e-a8d4815b305a
 # ╟─74fa9dcb-a19b-407d-b4d6-db348414aabc
 # ╟─293a8db4-25b8-45ac-8f66-5030c3678769
+# ╟─8ff78ed8-cabb-4334-90a7-449b7350944c
+# ╠═21ab02d9-31c5-478f-9aaf-9f2d0962aed4
+# ╟─6685c382-6371-4891-8670-85ac582e1e30
+# ╟─052eec1b-b61f-4f9d-ae61-f2a604598300
+# ╠═66d1dc30-f37e-4911-b962-18136b07a41d
+# ╟─81d25e62-dd7e-4448-8955-6ec2118a375e
+# ╟─2754d630-97cc-4164-b703-8266818839dc
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
